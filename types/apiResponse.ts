@@ -10,4 +10,6 @@ export type ApiResponse<T> =
     errors: ApiErrors;
 };
 
-export type ApiErrors = Record<string, string>;
+export type ApiErrors = {
+    [key: string]: string[]; // For field-specific or generic errors
+};
