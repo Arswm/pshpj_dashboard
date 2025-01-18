@@ -1,0 +1,82 @@
+// utils/api.ts
+import { getCookie, deleteCookie } from "cookies-next";
+// import {cookies} from "next/headers"
+import { ApiResponse } from "@/types/apiResponse";
+
+const SIGN_IN_URL = `${process.env.NEXT_PUBLIC_API_URL}/auth/signin`;
+
+export const apiFetch = async <T>(
+  endpoint: string,
+  options: RequestInit = {},
+): Promise<ApiResponse<T>> => {
+    // const cookieStore = await cookies()
+//   const baseUrl = process.env.NEXT_PUBLIC_API_URL; // API base URL from .env file
+  const baseUrl = "http://192.168.0.244:8000/api/v1"
+  const url = `${baseUrl}${endpoint}`;
+//   const token = getCookie("token"); // Get the token from cookies
+    const token = "6|5zIRdolkeACnWtyym2Xg70Tp0iA8XR2dRw1adRDZc61bf287"
+
+  // Default headers, including Authorization if the token exists
+  const defaultHeaders = {
+    Accept: "application/json",
+    Authorization: token ? `Bearer ${token}` : "", // Only add Authorization header if token exists
+  };
+
+  try {
+    // Making the request
+    const response = await fetch(url, {
+      ...options,
+      headers: { ...defaultHeaders, ...options.headers },
+    });
+
+    // Parsing response JSON
+    const responseData = await response.json();
+
+    // If the response is not ok (status >= 400), handle errors
+    if (!response.ok) {
+      if (response.status === 401 || response.status === 403) {
+        if (typeof window === "undefined") {
+          return {
+            success: false,
+            message: responseData.message || "Window is not defined",
+            errors: {},
+          };
+        }
+
+        if (window.location.href === SIGN_IN_URL) {
+          return {
+            success: false,
+            message: responseData.message || "Not authorized",
+            errors: {},
+          };
+        }
+
+        deleteCookie("token");
+        window.location.href = SIGN_IN_URL;
+      }
+
+      return {
+        success: false,
+        message: responseData.message || "An error occurred",
+        errors: responseData.errors || [],
+      };
+    }
+    return {
+      success: true,
+      data: responseData.data,
+    };
+  } catch (err) {
+    console.error("Request failed:", err);
+
+    let error: string = "";
+    if (typeof err === "string") {
+      error = err;
+    }
+
+    return {
+      success: false,
+      message: error || "An unexpected error occurred",
+      errors: { generalError: [error] }, // Use a more descriptive key
+    };
+  }
+};
