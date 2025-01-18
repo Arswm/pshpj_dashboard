@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+      },
       keyframes: {
         "caret-blink": {
           "0%,70%,100%": { opacity: "1" },
@@ -23,6 +26,7 @@ export default {
         foreground: "var(--foreground)",
         primary: "#3c50e0",
         "navy-blue": "#1c2434",
+        "tabs-gray": "#f7fafc",
       },
       borderRadius: {
         lg: "var(--radius)",

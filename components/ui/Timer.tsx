@@ -31,7 +31,7 @@ const Timer: React.FC<TimerProps> = ({ initialTime }) => {
             زمان باقی مانده تا انقضای کد
             <span
               className={
-                "text-red-500 font-bold border border-red-500 rounded py-0.5 px-4"
+                "text-red-500 font-bold border border-red-500 rounded py-0.5 px-4 mx-2"
               }
             >
               {time}

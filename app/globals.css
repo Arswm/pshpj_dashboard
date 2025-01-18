@@ -12,3 +12,15 @@ body {
     }
 }
 
+.tabs-trigger:first-child {
+    @apply rounded-tr
+}
+
+.tabs-trigger {
+    @apply my-0 py-0 h-full rounded-none data-[state=active]:!shadow-none shadow-none data-[state=active]:!text-primary ;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+

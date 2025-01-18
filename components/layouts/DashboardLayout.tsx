@@ -32,7 +32,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({children}) => {
                 >
                     {sidebarOpen ? <CircleX/> : <AlignJustify/>}
                 </button>
-                <div className="p-4">{children}</div>
+                <div className="md:p-4 bg-[#f1f5f9] min-h-dvh">{children}</div>
             </main>
         </div>
     );

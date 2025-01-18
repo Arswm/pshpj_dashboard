@@ -35,7 +35,7 @@ function  OtpForm() {
                 router.push("/dashboard"); 
             } else {
                 console.error(apiResponse.message || "Verification failed");
-                // here we add the error for user to see the verification code was wrong
+                // here we create the error for user to see the verification code was wrong
             }
         } catch (e) {
             console.log("fetch failed error :", e);
@@ -70,16 +70,7 @@ function  OtpForm() {
             </InputOTP>
 
             <Timer initialTime={120}/>
-            <div className={"flex justify-center"}>
-                <a
-                    href={"/login"}
-                    className={
-                        "text-center mt-7 text-slate-400  py-0.5 px-4 rounded cursor-pointer"
-                    }
-                >
-                    ویرایش شماره تماس
-                </a>
-            </div>
+        
         </div>
     );
 }
