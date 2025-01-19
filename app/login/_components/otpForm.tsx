@@ -6,9 +6,11 @@ import {
   InputOTPSlot,
 } from '@/components/ui/input-otp';
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
-import Timer from '@/components/ui/Timer'
+import Timer from '@/components/ui/Timer';
 import { setTokenToCookie } from '@/actions/cookie';
 import { useRouter } from 'next/navigation';
+import { VerifyCodeAPI } from '../_core/requests';
+import { toast } from '@/hooks/use-toast';
 
 function OtpForm() {
   const router = useRouter();
@@ -19,28 +21,20 @@ function OtpForm() {
       code: data,
       type: 'login',
     };
+
     try {
-      const response = await fetch(`${ApiUrl}/auth/verify-code`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify(formattedData),
-      });
+      const response = await VerifyCodeAPI(formattedData);
 
-      const apiResponse = await response.json();
-
-      // Check for a successful response and redirect
-      if (apiResponse.success) {
-        await setTokenToCookie(apiResponse.data);
-
-        router.push('/dashboard');
-      } else {
-        console.error(apiResponse.message || 'Verification failed');
-        // here we create the error for user to see the verification code was wrong
+      if (!response?.success) {
+        toast({
+          variant: 'destructive',
+          description: response?.errors?.message[0],
+        });
+        return;
       }
+
+      await setTokenToCookie(response?.data);
+      router.push('/dashboard');
     } catch (e) {
       console.log('fetch failed error :', e);
     }

@@ -1,15 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import RegisterCompanyForm from './_components/RegisterCompanyForm';
 import RegisterBrandForm from '@/app/dashboard/companies/_components/RegisterBrandForm';
-import { apiFetch } from '@/utils/api';
-import { ApiResponse } from '@/types/apiResponse';
-import { CompaniesDynamicList } from './_core/interfaces';
 import BrandsContent from './_components/BrandsContent';
 import CompaniesContent from './_components/CompaniesContent';
 
 async function CompaniesPage() {
-  let { data: companiesDynamicList } =
-    await apiFetch<CompaniesDynamicList[]>('/panel/list/companies');
+  // /api/v1/panel/list/companies
 
   return (
     <>
@@ -39,7 +35,7 @@ async function CompaniesPage() {
                 <RegisterCompanyForm />
               </TabsContent>
               <TabsContent value="Brands">
-                <RegisterBrandForm companiesDynamicList={companiesDynamicList} />
+                <RegisterBrandForm companiesDynamicList={[]} />
               </TabsContent>
             </div>
           </div>

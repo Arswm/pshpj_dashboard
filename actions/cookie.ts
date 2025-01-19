@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 export async function setTokenToCookie(token: string) {
   try {
     (await cookies()).set({
-      name: 'token',
+      name: 'accessToken',
       value: token,
       httpOnly: true,
       secure: true,

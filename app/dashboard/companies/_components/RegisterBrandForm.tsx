@@ -11,8 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { ApiResponse } from '@/types/apiResponse';
-import { apiFetch } from '@/utils/api';
 import { useForm } from 'react-hook-form';
 import { CompaniesDynamicList, PostBrandSchema } from '../_core/interfaces';
 
@@ -47,15 +45,18 @@ export default function RegisterBrandForm({
     });
 
     try {
-      const response = await apiFetch<ApiResponse<void>>('/panel/brands', {
-        method: 'POST',
-        body: formData,
-      });
+      // const response = await apiFetch<ApiResponse<void>>('/panel/brands', {
+      //   method: 'POST',
+      //   body: formData,
+      // });
 
-      if (response.success) {
-        reset();
-        setValue('company_id', '');
-      }
+      // if (!response) {
+      //   console.log("khata darim");
+      //   return;
+      // }
+
+      reset();
+      setValue('company_id', '');
     } catch (error) {
       console.log(error);
     }

@@ -6,11 +6,11 @@ import { Input } from '@/components/ui/input';
 import { emailRegex, mobileRegex } from '@/constants/regex';
 import { Button } from '@/components/ui/button';
 import ButtonLoading from '@/components/ui/buttonLoading';
-import { ApiErrors } from '@/types/apiResponse';
 import { FieldValues } from 'react-hook-form';
 import { ILoginSchema } from '@/app/login/_core/interfaces';
 import { useForm } from 'react-hook-form';
 import { PostOtp } from '../_core/requests';
+import { toast } from '@/hooks/use-toast';
 
 interface LoginFormProps {
   setOtp: (value: boolean) => void;
@@ -18,7 +18,6 @@ interface LoginFormProps {
 
 function LoginForm({ setOtp }: LoginFormProps) {
   const [activeTab, setActiveTab] = useState<'mobile' | 'email'>('mobile');
-  const [userError, setUserError] = useState<ApiErrors | null>(null);
 
   const {
     register,
@@ -34,19 +33,21 @@ function LoginForm({ setOtp }: LoginFormProps) {
     };
 
     try {
-      const apiResponse = await PostOtp(formattedData);
+      const response = await PostOtp(formattedData);
 
-      if (!apiResponse.success) {
-        setUserError(apiResponse.errors);
-      } else {
-        setUserError(null);
-        setOtp(true);
+      if (!response) return;
+
+      if (!response.success) {
+        toast({
+          variant: 'destructive',
+          description: response.message?.message[0],
+        });
+        return;
       }
-    } catch (error) {
-      console.error('Error during fetch:', error);
-      setUserError({
-        message: ['An unexpected error occurred. Please try again.'],
-      });
+
+      setOtp(true);
+    } catch (error: unknown) {
+      console.error(error);
     } finally {
       reset();
     }
@@ -112,14 +113,14 @@ function LoginForm({ setOtp }: LoginFormProps) {
             </TabsContent>
           </div>
 
-          {userError &&
+          {/* {userError &&
             Object.keys(userError).map((key) =>
               userError[key].map((error, index) => (
                 <p key={`${key}-${index}`} className="text-red-400 text-center">
                   {error}
                 </p>
               )),
-            )}
+            )} */}
 
           <Button disabled={isSubmitting} variant="primary" className="w-full mt-2">
             {isSubmitting ? <ButtonLoading /> : 'ارسال'}

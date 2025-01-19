@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import React from 'react';
 import './globals.css';
+import { Toaster } from '@/components/ui/toaster';
 
 const yekanBakh = localFont({
   variable: '--app-font',
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="fa" dir="rtl">
       <body className={`${yekanBakh.variable} antialiased`}>
         <main>{children}</main>
+        <Toaster />
       </body>
     </html>
   );

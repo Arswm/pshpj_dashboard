@@ -1,28 +1,27 @@
 'use client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { apiFetch } from '@/utils/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useSwr from 'swr';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination';
+// import {
+//   Pagination,
+//   PaginationContent,
+//   PaginationEllipsis,
+//   PaginationItem,
+//   PaginationLink,
+//   PaginationNext,
+//   PaginationPrevious,
+// } from '@/components/ui/pagination';
 import { Input } from '@/components/ui/input';
 export default function BrandsContent() {
-  const [currentPage, setcurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
 
-  const url = `/panel/brands?page=${currentPage}`;
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
-  const { data, isLoading } = useSwr(url, async (_url) => await apiFetch(_url));
-  const lastPage = data?.data.last_page;
-  const pageData = data?.data.data;
-
-  console.log(pageData);
+  const url = `/panel/brands?page=1`;
 
   return (
     <div className="bg-white p-4 rounded">
@@ -33,7 +32,7 @@ export default function BrandsContent() {
           <div className="absolute left-2 top-1/2 bottom-1/2"></div>
         </div>
       </div>
-      {isLoading ? (
+      {loading ? (
         Array.from({ length: 4 }).map((item, index) => (
           <div
             key={index}
@@ -69,19 +68,19 @@ export default function BrandsContent() {
         ))
       ) : (
         <div className="bg-white p-4 rounded space-y-4">
-          {pageData.map((item) => (
-            <div key={item.id} className="flex flex-col gap-4 border rounded-sm p-4">
+          {[].map((item) => (
+            <div className="flex flex-col gap-4 border rounded-sm p-4">
               <div className="flex items-center gap-2">
                 <div>
                   <Avatar>
-                    <AvatarImage src={item?.logo?.url} alt="@shadcn" />
+                    {/* <AvatarImage src={item?.logo?.url} alt="@shadcn" /> */}
                     <AvatarFallback>CN</AvatarFallback>
                   </Avatar>
                 </div>
 
                 <div>
-                  <p className="text-sm font-semibold">{item.name}</p>
-                  <span className="text-xs text-gray-700">{item.company_name}</span>
+                  <p className="text-sm font-semibold">{'item.name'}</p>
+                  <span className="text-xs text-gray-700">{'item.company_name'}</span>
                 </div>
               </div>
               <div className="flex items-center justify-between gap-6 text-sm">
