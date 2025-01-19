@@ -1,6 +1,6 @@
 export default function CompaniesContent() {
   return (
-    <div className={"bg-white p-4 rounded"}>
+    <div className={'bg-white p-4 rounded'}>
       {Array.from({ length: 4 }).map((item, index) => (
         <div
           key={index}

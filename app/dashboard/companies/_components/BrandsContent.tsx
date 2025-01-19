@@ -1,8 +1,8 @@
-"use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { apiFetch } from "@/utils/api";
-import { useState } from "react";
-import useSwr from "swr";
+'use client';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { apiFetch } from '@/utils/api';
+import { useState } from 'react';
+import useSwr from 'swr';
 import {
   Pagination,
   PaginationContent,
@@ -11,8 +11,8 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/pagination';
+import { Input } from '@/components/ui/input';
 export default function BrandsContent() {
   const [currentPage, setcurrentPage] = useState(1);
 
@@ -30,9 +30,7 @@ export default function BrandsContent() {
         <h4>برند های ثبت شده</h4>
         <div className="bg-gray-100 relative">
           <Input className="bg-transparent" />
-        <div className="absolute left-2 top-1/2 bottom-1/2">
-            
-        </div>
+          <div className="absolute left-2 top-1/2 bottom-1/2"></div>
         </div>
       </div>
       {isLoading ? (
@@ -72,10 +70,7 @@ export default function BrandsContent() {
       ) : (
         <div className="bg-white p-4 rounded space-y-4">
           {pageData.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col gap-4 border rounded-sm p-4"
-            >
+            <div key={item.id} className="flex flex-col gap-4 border rounded-sm p-4">
               <div className="flex items-center gap-2">
                 <div>
                   <Avatar>
@@ -86,9 +81,7 @@ export default function BrandsContent() {
 
                 <div>
                   <p className="text-sm font-semibold">{item.name}</p>
-                  <span className="text-xs text-gray-700">
-                    {item.company_name}
-                  </span>
+                  <span className="text-xs text-gray-700">{item.company_name}</span>
                 </div>
               </div>
               <div className="flex items-center justify-between gap-6 text-sm">

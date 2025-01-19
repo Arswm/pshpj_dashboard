@@ -1,26 +1,21 @@
 // /core/requests.ts
-import { ApiResponse } from "@/types/apiResponse";
-import { ILoginSchema } from "@/app/login/_core/interfaces";
-import { ApiUrl } from "@/constants/ApiUrl";
+import { ApiResponse } from '@/types/apiResponse';
+import { ILoginSchema } from '@/app/login/_core/interfaces';
 
 export async function PostOtp(data: ILoginSchema): Promise<ApiResponse<null>> {
   const response = await fetch(`${ApiUrl}/auth/otp`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
-    credentials: "include",
+    credentials: 'include',
     body: JSON.stringify(data),
   });
 
   if (!response.ok) {
-    throw new Error(
-      `Server error: ${response.status} ${response.statusText}`
-    );
+    throw new Error(`Server error: ${response.status} ${response.statusText}`);
   }
 
   return response.json();
 }
-
-

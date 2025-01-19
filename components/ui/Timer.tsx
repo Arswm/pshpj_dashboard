@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 interface TimerProps {
   initialTime: number;
@@ -25,14 +25,12 @@ const Timer: React.FC<TimerProps> = ({ initialTime }) => {
 
   return (
     <div>
-      <span className={""}>
+      <span className={''}>
         {time > 0 ? (
-          <p className={"text-center mt-6"}>
+          <p className={'text-center mt-6'}>
             زمان باقی مانده تا انقضای کد
             <span
-              className={
-                "text-red-500 font-bold border border-red-500 rounded py-0.5 px-4 mx-2"
-              }
+              className={'text-red-500 font-bold border border-red-500 rounded py-0.5 px-4 mx-2'}
             >
               {time}
             </span>
@@ -41,7 +39,7 @@ const Timer: React.FC<TimerProps> = ({ initialTime }) => {
         ) : (
           <p
             className={
-              "text-center text-green-600 border border-green-600 w-fit ms-auto py-0.5 px-4 rounded cursor-pointer mx-auto mt-6 hover:bg-green-600 hover:text-white duration-200"
+              'text-center text-green-600 border border-green-600 w-fit ms-auto py-0.5 px-4 rounded cursor-pointer mx-auto mt-6 hover:bg-green-600 hover:text-white duration-200'
             }
           >
             ارسال مجدد کد تایید

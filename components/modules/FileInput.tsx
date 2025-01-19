@@ -1,10 +1,10 @@
-import { PostCompanySchema } from "@/app/dashboard/companies/_core/interfaces";
-import { cn } from "@/lib/utils";
-import { HTMLProps } from "react";
-import { RegisterOptions } from "react-hook-form";
-import { Alert, AlertDescription } from "../ui/alert";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
+import { PostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
+import { cn } from '@/lib/utils';
+import { HTMLProps } from 'react';
+import { RegisterOptions } from 'react-hook-form';
+import { Alert, AlertDescription } from '../ui/alert';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
 
 type FileInputProps = {
   label: string;
@@ -15,7 +15,7 @@ type FileInputProps = {
   placeholder?: string;
   accept: string;
   rules?: RegisterOptions<PostCompanySchema>;
-  className?: HTMLProps<HTMLElement>["className"];
+  className?: HTMLProps<HTMLElement>['className'];
 };
 export default function FileInput({
   label,
@@ -42,8 +42,8 @@ export default function FileInput({
         accept={accept}
         {...register(name, rules)}
         className={cn(
-          "w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary",
-          className
+          'w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary',
+          className,
         )}
         // onChange={async (e) => {
         //   await register("avatar").onChange(e.target.files?.[0]);

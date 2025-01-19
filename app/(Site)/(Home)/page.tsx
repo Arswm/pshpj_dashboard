@@ -1,17 +1,17 @@
-"use client";
-import LogoImage from "@/assets/images/logo-pshpj-min.png";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
+'use client';
+import LogoImage from '@/assets/images/logo-pshpj-min.png';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 export default function Home() {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <>
-      <div className={"min-h-dvh"}>
+      <div className={'min-h-dvh'}>
         <header className="w-full border-b border-customGray">
           <div className="container mx-auto p-4 xl:p-5 flex justify-between sm:justify-center items-center gap-4 lg:gap-14">
             <div className="w-[125px]">
@@ -53,8 +53,8 @@ export default function Home() {
           </div>
           <div
             className={cn(
-              "bg-red-500 translate-y-full transition-all duration-300 overflow-hidden",
-              openMenu ? "h-80" : "h-0"
+              'bg-red-500 translate-y-full transition-all duration-300 overflow-hidden',
+              openMenu ? 'h-80' : 'h-0',
             )}
           >
             s

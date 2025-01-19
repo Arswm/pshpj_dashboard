@@ -1,20 +1,20 @@
-"use client";
-import FileInput from "@/components/modules/FileInput";
-import TextAreaInput from "@/components/modules/TexrAreaInput";
-import TextInput from "@/components/modules/TextInput";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+'use client';
+import FileInput from '@/components/modules/FileInput';
+import TextAreaInput from '@/components/modules/TexrAreaInput';
+import TextInput from '@/components/modules/TextInput';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { ApiResponse } from "@/types/apiResponse";
-import { apiFetch } from "@/utils/api";
-import { useForm } from "react-hook-form";
-import { CompaniesDynamicList, PostBrandSchema } from "../_core/interfaces";
+} from '@/components/ui/select';
+import { ApiResponse } from '@/types/apiResponse';
+import { apiFetch } from '@/utils/api';
+import { useForm } from 'react-hook-form';
+import { CompaniesDynamicList, PostBrandSchema } from '../_core/interfaces';
 
 export default function RegisterBrandForm({
   companiesDynamicList,
@@ -37,7 +37,7 @@ export default function RegisterBrandForm({
     Object.keys(data).forEach((item) => {
       const key = item as keyof PostBrandSchema;
 
-      if (typeof data[key] === "string") {
+      if (typeof data[key] === 'string') {
         data[key].length > 0 && formData.append(key, data[key]);
       } else {
         console.log(typeof data);
@@ -47,14 +47,14 @@ export default function RegisterBrandForm({
     });
 
     try {
-      const response = await apiFetch<ApiResponse<void>>("/panel/brands", {
-        method: "POST",
+      const response = await apiFetch<ApiResponse<void>>('/panel/brands', {
+        method: 'POST',
         body: formData,
       });
 
       if (response.success) {
         reset();
-        setValue("company_id", "");
+        setValue('company_id', '');
       }
     } catch (error) {
       console.log(error);
@@ -62,18 +62,18 @@ export default function RegisterBrandForm({
   };
 
   return (
-    <div className={"p-2"}>
+    <div className={'p-2'}>
       {/* onSubmit={form.handleSubmit(onSubmit)} */}
-      <form onSubmit={handleSubmit(onSubmit)} className={"w-full"}>
-        <div className={"grid gap-4 grid-cols-2"}>
+      <form onSubmit={handleSubmit(onSubmit)} className={'w-full'}>
+        <div className={'grid gap-4 grid-cols-2'}>
           {/*a select box with options from api comes here */}
           <div>
             <Label>انتخاب شرکت حقوقی</Label>
             <Select
               onValueChange={(e) => {
-                setValue("company_id", e);
+                setValue('company_id', e);
               }}
-              dir={"rtl"}
+              dir={'rtl'}
             >
               <SelectTrigger className="w-full h-11">
                 <SelectValue placeholder="انتخاب شرکت" />
@@ -97,11 +97,11 @@ export default function RegisterBrandForm({
             rules={{
               required: {
                 value: true,
-                message: "حداقل سه کارکتر وارد کنید",
+                message: 'حداقل سه کارکتر وارد کنید',
               },
               minLength: {
                 value: 3,
-                message: "حداقل سه کارکتر وارد کنید",
+                message: 'حداقل سه کارکتر وارد کنید',
               },
             }}
           />
@@ -115,11 +115,11 @@ export default function RegisterBrandForm({
             rules={{
               required: {
                 value: true,
-                message: "حداقل سه کارکتر وارد کنید",
+                message: 'حداقل سه کارکتر وارد کنید',
               },
               minLength: {
                 value: 3,
-                message: "حداقل سه کارکتر وارد کنید",
+                message: 'حداقل سه کارکتر وارد کنید',
               },
             }}
           />
@@ -154,11 +154,11 @@ export default function RegisterBrandForm({
             rules={{
               required: {
                 value: true,
-                message: "فیلد شماره تماس احباری است",
+                message: 'فیلد شماره تماس احباری است',
               },
               minLength: {
                 value: 8,
-                message: "حداقل ۸ عدد است",
+                message: 'حداقل ۸ عدد است',
               },
               // regex phone comes here
               //   pattern: {
@@ -228,7 +228,7 @@ export default function RegisterBrandForm({
           </div>
         </div>
 
-        <Button variant={"primary"} className="mt-4 w-full">
+        <Button variant={'primary'} className="mt-4 w-full">
           ثبت شرکت
         </Button>
       </form>

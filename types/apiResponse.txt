@@ -11,5 +11,5 @@ export type ApiResponse<T = never> = T extends never
     };
 
 export type ApiErrors = {
-    [key: string]: string[]; // For field-specific or generic errors
+  [key: string]: string[]; // For field-specific or generic errors
 };

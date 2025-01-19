@@ -3,25 +3,23 @@
 @tailwind utilities;
 
 body {
-    font-family: 'yekanBakh', sans-serif;
+  font-family: 'yekanBakh', sans-serif;
 }
 
 @layer base {
-    :root {
-        --radius: 0.5rem;
-    }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 
 .tabs-trigger:first-child {
-    @apply rounded-tr
+  @apply rounded-tr;
 }
 
 .tabs-trigger {
-    @apply my-0 py-0 h-full rounded-none data-[state=active]:!shadow-none shadow-none data-[state=active]:!text-primary ;
+  @apply my-0 py-0 h-full rounded-none data-[state=active]:!shadow-none shadow-none data-[state=active]:!text-primary;
 }
 
 body::-webkit-scrollbar {
-    display: none;
-   
+  display: none;
 }
-

@@ -1,4 +1,4 @@
-import BlogForm from "./_components/BlogForm";
+import BlogForm from './_components/BlogForm';
 
 const FormPage = async () => {
   return (

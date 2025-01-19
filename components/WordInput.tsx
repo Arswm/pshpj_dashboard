@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import React, { useState, KeyboardEvent, MouseEvent, FormEvent } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { PlusCircle, X, Edit2, Check } from "lucide-react";
+import React, { useState, KeyboardEvent, MouseEvent, FormEvent } from 'react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { PlusCircle, X, Edit2, Check } from 'lucide-react';
 
 export default function WordInput() {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [words, setWords] = useState<string[]>([]);
   const [editIndex, setEditIndex] = useState<number | null>(null);
-  const [editValue, setEditValue] = useState("");
+  const [editValue, setEditValue] = useState('');
 
   const addWord = (e: MouseEvent | KeyboardEvent) => {
     e.preventDefault();
     if (inputValue.trim()) {
       setWords([...words, inputValue.trim()]);
-      setInputValue("");
+      setInputValue('');
     }
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       e.preventDefault();
       addWord(e);
     }
@@ -39,14 +39,14 @@ export default function WordInput() {
       newWords[editIndex] = editValue.trim();
       setWords(newWords);
       setEditIndex(null);
-      setEditValue("");
+      setEditValue('');
     }
   };
 
   const cancelEdit = (e: MouseEvent) => {
     e.preventDefault();
     setEditIndex(null);
-    setEditValue("");
+    setEditValue('');
   };
 
   const deleteWord = (e: MouseEvent, index: number) => {
@@ -68,13 +68,8 @@ export default function WordInput() {
   return (
     <div className="w-full space-y-4">
       <div className="flex space-x-2">
-        <Button
-          type="button"
-          size="icon"
-          onClick={addWord}
-          className="size-11"
-        >
-        <PlusCircle className="h-4 w-4" />
+        <Button type="button" size="icon" onClick={addWord} className="size-11">
+          <PlusCircle className="h-4 w-4" />
         </Button>
         <Input
           type="text"
@@ -87,16 +82,11 @@ export default function WordInput() {
       </div>
       <div
         className={`${
-          words.length > 0
-            ? "flex flex-wrap gap-4 bg-white shadow p-2 rounded-lg"
-            : "hidden"
+          words.length > 0 ? 'flex flex-wrap gap-4 bg-white shadow p-2 rounded-lg' : 'hidden'
         }`}
       >
         {words.map((word, index) => (
-          <div
-            key={index}
-            className="flex items-center bg-[#EFF4FB] rounded-lg overflow-hidden"
-          >
+          <div key={index} className="flex items-center bg-[#EFF4FB] rounded-lg overflow-hidden">
             {editIndex === index ? (
               <>
                 <Input
@@ -105,26 +95,16 @@ export default function WordInput() {
                   onChange={handleEditInputChange}
                   className="border-none bg-transparent px-2 py-1 text-lg focus:ring-0 w-[642.5px]"
                   onKeyDown={(e) => {
-                    if (e.key === "Enter") {
+                    if (e.key === 'Enter') {
                       e.preventDefault();
                       saveEdit(e);
                     }
                   }}
                 />
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  onClick={saveEdit}
-                  className="h-8 w-8"
-                >
+                <Button size="icon" variant="ghost" onClick={saveEdit} className="h-8 w-8">
                   <Check className="h-4 w-4" />
                 </Button>
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  onClick={cancelEdit}
-                  className="h-8 w-8"
-                >
+                <Button size="icon" variant="ghost" onClick={cancelEdit} className="h-8 w-8">
                   <X className="h-4 w-4" />
                 </Button>
               </>

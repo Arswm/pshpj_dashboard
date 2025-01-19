@@ -1,12 +1,12 @@
-"use client";
-import FileInput from "@/components/modules/FileInput";
-import TextAreaInput from "@/components/modules/TexrAreaInput";
-import TextInput from "@/components/modules/TextInput";
-import { Button } from "@/components/ui/button";
-import { useForm } from "react-hook-form";
-import { PostCompanySchema } from "../_core/interfaces";
-import { apiFetch } from "@/utils/api";
-import { ApiResponse } from "@/types/apiResponse";
+'use client';
+import FileInput from '@/components/modules/FileInput';
+import TextAreaInput from '@/components/modules/TexrAreaInput';
+import TextInput from '@/components/modules/TextInput';
+import { Button } from '@/components/ui/button';
+import { useForm } from 'react-hook-form';
+import { PostCompanySchema } from '../_core/interfaces';
+import { apiFetch } from '@/utils/api';
+import { ApiResponse } from '@/types/apiResponse';
 
 export default function RegisterCompanyForm() {
   // hooks
@@ -25,7 +25,7 @@ export default function RegisterCompanyForm() {
     Object.keys(data).forEach((item) => {
       const key = item as keyof PostCompanySchema;
 
-      if (typeof data[key] === "string") {
+      if (typeof data[key] === 'string') {
         data[key].length > 0 && formData.append(key, data[key]);
       } else {
         console.log(typeof data);
@@ -35,8 +35,8 @@ export default function RegisterCompanyForm() {
     });
 
     try {
-      const response = await apiFetch<ApiResponse<void>>("/panel/companies", {
-        method: "POST",
+      const response = await apiFetch<ApiResponse<void>>('/panel/companies', {
+        method: 'POST',
         body: formData,
       });
 
@@ -47,10 +47,10 @@ export default function RegisterCompanyForm() {
     }
   };
   return (
-    <div className={"p-2"}>
+    <div className={'p-2'}>
       {/* onSubmit={form.handleSubmit(onSubmit)} */}
-      <form onSubmit={handleSubmit(onSubmit)} className={"w-full"}>
-        <div className={"grid gap-4 grid-cols-2"}>
+      <form onSubmit={handleSubmit(onSubmit)} className={'w-full'}>
+        <div className={'grid gap-4 grid-cols-2'}>
           <TextInput
             register={register}
             label="نام شرکت"
@@ -60,11 +60,11 @@ export default function RegisterCompanyForm() {
             rules={{
               required: {
                 value: true,
-                message: "حداقل سه کارکتر وارد کنید",
+                message: 'حداقل سه کارکتر وارد کنید',
               },
               minLength: {
                 value: 3,
-                message: "حداقل سه کارکتر وارد کنید",
+                message: 'حداقل سه کارکتر وارد کنید',
               },
             }}
           />
@@ -78,11 +78,11 @@ export default function RegisterCompanyForm() {
             rules={{
               required: {
                 value: true,
-                message: "نام مدیر عامل است",
+                message: 'نام مدیر عامل است',
               },
               minLength: {
                 value: 2,
-                message: "حداقل دو کارکتر وارد کنید",
+                message: 'حداقل دو کارکتر وارد کنید',
               },
             }}
           />
@@ -95,7 +95,7 @@ export default function RegisterCompanyForm() {
             rules={{
               minLength: {
                 value: 3,
-                message: "حداقل سه کارکتر وارد کنید",
+                message: 'حداقل سه کارکتر وارد کنید',
               },
             }}
           />
@@ -123,11 +123,11 @@ export default function RegisterCompanyForm() {
             rules={{
               required: {
                 value: true,
-                message: "فیلد شماره تماس احباری است",
+                message: 'فیلد شماره تماس احباری است',
               },
               minLength: {
                 value: 8,
-                message: "حداقل ۸ عدد است",
+                message: 'حداقل ۸ عدد است',
               },
               // regex phone comes here
               //   pattern: {
@@ -231,7 +231,7 @@ export default function RegisterCompanyForm() {
           </div>
         </div>
 
-        <Button variant={"primary"} className="mt-4 w-full">
+        <Button variant={'primary'} className="mt-4 w-full">
           ثبت شرکت
         </Button>
       </form>

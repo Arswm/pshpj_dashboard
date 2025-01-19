@@ -1,9 +1,9 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState } from 'react';
 
-import OtpForm from "@/app/login/_components/otpForm";
-import LoginForm from "@/app/login/_components/LoginForm";
-import Link from "next/link";
+import OtpForm from '@/app/login/_components/otpForm';
+import LoginForm from '@/app/login/_components/LoginForm';
+import Link from 'next/link';
 
 function LoginPage() {
   const [otp, setOtp] = useState<boolean>(false);
@@ -14,11 +14,11 @@ function LoginPage() {
         <div className="w-full p-6 bg-white md:p-8 rounded-s flex flex-col rounded">
           {otp ? <OtpForm /> : <LoginForm setOtp={setOtp} />}
 
-          <p className={"text-xs mt-4"}>
-            با ورود به اتوماسیون شما با{" "}
-            <Link href="#" className={"underline"}>
+          <p className={'text-xs mt-4'}>
+            با ورود به اتوماسیون شما با{' '}
+            <Link href="#" className={'underline'}>
               قوانین شرکت
-            </Link>{" "}
+            </Link>{' '}
             پردیس شگفت پارس جنوب موافقت کرده اید
           </p>
           <p></p>

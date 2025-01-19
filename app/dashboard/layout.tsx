@@ -1,10 +1,6 @@
-import React from "react"
-import DashboardLayout from "@/components/layouts/DashboardLayout"; // Adjust path
+import React from 'react';
+import DashboardLayout from '@/components/layouts/DashboardLayout'; // Adjust path
 
-export default function dashboard({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function dashboard({ children }: { children: React.ReactNode }) {
   return <DashboardLayout>{children}</DashboardLayout>;
 }
