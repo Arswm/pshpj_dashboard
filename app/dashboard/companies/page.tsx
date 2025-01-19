@@ -1,9 +1,15 @@
-"use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import RegisterCompanyForm from "./_components/RegisterCompanyForm";
 import RegisterBrandForm from "@/app/dashboard/companies/_components/RegisterBrandForm";
+import { apiFetch } from "@/utils/api";
+import { ApiResponse } from "@/types/apiResponse";
+import { CompaniesDynamicList } from "./_core/interfaces";
 
-function CompaniesPage() {
+async function CompaniesPage() {
+  let { data: companiesDynamicList } = await apiFetch<CompaniesDynamicList[]>(
+    "/panel/list/companies"
+  );
+
   return (
     <>
       <div className={"grid gap-4 grid-cols-2"}>
@@ -33,7 +39,7 @@ function CompaniesPage() {
               <RegisterCompanyForm />
             </TabsContent>
             <TabsContent value="password">
-              <RegisterBrandForm />
+              <RegisterBrandForm companiesDynamicList={companiesDynamicList} />
             </TabsContent>
           </div>
         </Tabs>

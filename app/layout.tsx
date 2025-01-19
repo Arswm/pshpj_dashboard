@@ -1,8 +1,7 @@
-import React from "react";
 import type { Metadata } from "next";
-import "./globals.css";
 import localFont from "next/font/local";
-import { ReactQueryClientProvider } from "@/components/providers/ReactQueryProvider";
+import React from "react";
+import "./globals.css";
 
 const yekanBakh = localFont({
   variable: "--app-font",
@@ -45,12 +44,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ReactQueryClientProvider>
-      <html lang="fa" dir="rtl">
-        <body className={`${yekanBakh.variable} antialiased`}>
-          <main>{children}</main>
-        </body>
-      </html>
-    </ReactQueryClientProvider>
+    <html lang="fa" dir="rtl">
+      <body className={`${yekanBakh.variable} antialiased`}>
+        <main>{children}</main>
+      </body>
+    </html>
   );
 }

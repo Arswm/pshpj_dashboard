@@ -34,4 +34,11 @@ export interface PostBrandSchema {
     address: string;
     payment_link: string;
     access_token: string;
+    en_name: string
+}
+
+
+export interface CompaniesDynamicList {
+    company_name :string;
+    id: string
 }
