@@ -1,4 +1,4 @@
-import { RegisterOptions, UseFormRegister } from "react-hook-form";
+import { RegisterOptions } from "react-hook-form";
 import { Alert, AlertDescription } from "../ui/alert";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";

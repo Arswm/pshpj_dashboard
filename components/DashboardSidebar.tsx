@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import {BuildingIcon, FolderOpenDot, HomeIcon, Rss, SettingsIcon, UserIcon} from "lucide-react";
+import {BuildingIcon, FolderOpenDot, HomeIcon, Rss, SettingsIcon, UserIcon, Users} from "lucide-react";
 
 interface DashboardSidebarProps {
     className?: string;
@@ -18,7 +18,7 @@ const menuLinks = [
         id: 2,
         url: '/dashboard/users',
         text: "Users",
-        icon: <UserIcon/>,
+        icon: <Users/>,
     },
     {
         id: 3,
@@ -43,6 +43,12 @@ const menuLinks = [
         url: '/dashboard/projects',
         text: "Projects",
         icon: <FolderOpenDot/>,
+    },
+    {
+        id: 7,
+        url: '/dashboard/profile',
+        text: "Profile",
+        icon: <UserIcon/>,
     }
 ]
 

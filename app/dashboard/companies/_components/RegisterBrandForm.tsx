@@ -3,26 +3,28 @@ import TextAreaInput from "@/components/modules/TexrAreaInput";
 import TextInput from "@/components/modules/TextInput";
 import {Button} from "@/components/ui/button";
 import {useForm} from "react-hook-form";
-import {PostCompanySchema} from "../_core/interfaces";
+import {PostBrandSchema} from "../_core/interfaces";
 import {apiFetch} from "@/utils/api";
 import {ApiResponse} from "@/types/apiResponse";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import {Label} from "@/components/ui/label";
 
-export default function RegisterCompanyForm() {
+export default function RegisterBrandForm() {
     // hooks
     const {
         register,
         handleSubmit,
         formState: {errors},
-    } = useForm<PostCompanySchema>();
+    } = useForm<PostBrandSchema>();
 
     //   handlers
-    const onSubmit = async (data: PostCompanySchema) => {
+    const onSubmit = async (data: PostBrandSchema) => {
         console.log(data);
         const formData = new FormData();
         console.log(Object.entries(data));
 
         Object.keys(data).forEach((item) => {
-            const key = item as keyof PostCompanySchema;
+            const key = item as keyof PostBrandSchema;
 
             if (typeof data[key] === "string") {
                 data[key].length > 0 && formData.append(key, data[key]);
@@ -50,11 +52,29 @@ export default function RegisterCompanyForm() {
             {/* onSubmit={form.handleSubmit(onSubmit)} */}
             <form onSubmit={handleSubmit(onSubmit)} className={"w-full"}>
                 <div className={"grid gap-4 grid-cols-2"}>
+
+                    {/*a select box with options from api comes here */}
+                    <div>
+                        <Label>
+                            انتخاب شرکت حقوقی
+                        </Label>
+                        <Select dir={'rtl'}>
+                            <SelectTrigger className="w-full h-11">
+                                <SelectValue placeholder="Theme"/>
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="کمپانی تست">کمپانی تست</SelectItem>
+                                <SelectItem value="کمپانی تست ۲">کمپانی تست ۲</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+
+
                     <TextInput
                         register={register}
-                        label="نام شرکت"
-                        error={errors.company_name?.message}
-                        name="company_name"
+                        label="نام برند"
+                        error={errors.name?.message}
+                        name="name"
                         required
                         rules={{
                             required: {
@@ -70,27 +90,10 @@ export default function RegisterCompanyForm() {
 
                     <TextInput
                         register={register}
-                        label="مدیر عامل"
-                        error={errors.company_name?.message}
-                        name="owner_name"
-                        required
-                        rules={{
-                            required: {
-                                value: true,
-                                message: "نام مدیر عامل است",
-                            },
-                            minLength: {
-                                value: 2,
-                                message: "حداقل دو کارکتر وارد کنید",
-                            },
-                        }}
-                    />
-
-                    <TextInput
-                        register={register}
                         label="شناسه ملی"
-                        error={errors.national_number?.message}
-                        name="national_number"
+                        error={errors.email?.message}
+                        name="email"
+                        required
                         rules={{
                             minLength: {
                                 value: 3,

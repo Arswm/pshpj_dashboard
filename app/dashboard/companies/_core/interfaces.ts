@@ -18,4 +18,20 @@ export interface PostCompanySchema {
     signature?: File | null;
     logo?: File | null;
     letterhead?: File | null;
-  }
+}
+
+export interface PostBrandSchema {
+    name: string;
+    company_id: string;
+    logo: File | null;
+    website: string;
+    email: string;
+    telephone: string;
+    phone: string;
+    card_number: string;
+    card_owner_name: string;
+    ir_sheba: string;
+    address: string;
+    payment_link: string;
+    access_token: string;
+}

@@ -1,12 +1,13 @@
 "use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import RegisterCompanyForm from "./_components/RegisterCompanyForm";
+import RegisterBrandForm from "@/app/dashboard/companies/_components/RegisterBrandForm";
 
 function CompaniesPage() {
   return (
     <>
       <div className={"grid gap-4 grid-cols-2"}>
-        <Tabs defaultValue="account" className="w-full grid gap-4">
+        <Tabs dir="rtl" defaultValue="account" className="w-full grid gap-4">
           <div className="bg-white p-2 rounded-lg shadow">
             <TabsList className={"w-full min-h-14 gap-2"}>
               <TabsTrigger
@@ -28,10 +29,12 @@ function CompaniesPage() {
             </TabsList>
           </div>
           <div className="bg-white shadow rounded-lg p-2">
-            <TabsContent dir="rtl" value="account">
+            <TabsContent value="account">
               <RegisterCompanyForm />
             </TabsContent>
-            <TabsContent value="password">برند</TabsContent>
+            <TabsContent value="password">
+              <RegisterBrandForm />
+            </TabsContent>
           </div>
         </Tabs>
         <div className={"bg-white p-4 rounded"}>left</div>

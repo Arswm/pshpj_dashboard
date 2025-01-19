@@ -244,7 +244,7 @@ function Page() {
               <p>گرافیک دیجیتال</p>
             </div>
             <div className="flex justify-center flex-1 text-center text-sm items-center">
-              <p>ماندانا جهانشیری</p>
+              <p>آرسام دیوبندی</p>
             </div>
             <div className="flex flex-col gap-2 justify-center flex-1 text-center text-sm items-center">
               <p className="bg-green-200 px-2 py-1 rounded w-fit mx-auto">
@@ -311,7 +311,7 @@ function Page() {
               <p>گرافیک دیجیتال</p>
             </div>
             <div className="flex justify-center flex-1 text-center text-sm items-center">
-              <p>ماندانا جهانشیری</p>
+              <p>آرسام دیوبندی</p>
             </div>
             <div className="flex flex-col gap-2 justify-center flex-1 text-center text-sm items-center">
               <p className="bg-gray-100 px-2 py-1 rounded w-fit mx-auto">
@@ -378,7 +378,7 @@ function Page() {
               <p>گرافیک دیجیتال</p>
             </div>
             <div className="flex justify-center flex-1 text-center text-sm items-center">
-              <p>ماندانا جهانشیری</p>
+              <p>آرسام دیوبندی</p>
             </div>
             <div className="flex flex-col gap-2 justify-center flex-1 text-center text-sm items-center">
               <p className="bg-red-100 px-2 py-1 rounded w-fit mx-auto">
