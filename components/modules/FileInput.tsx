@@ -1,4 +1,4 @@
-import { PostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
+import { IPostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
 import { cn } from '@/lib/utils';
 import { HTMLProps } from 'react';
 import { RegisterOptions } from 'react-hook-form';
@@ -14,7 +14,7 @@ type FileInputProps = {
   required?: boolean;
   placeholder?: string;
   accept: string;
-  rules?: RegisterOptions<PostCompanySchema>;
+  rules?: RegisterOptions<IPostCompanySchema>;
   className?: HTMLProps<HTMLElement>['className'];
 };
 export default function FileInput({

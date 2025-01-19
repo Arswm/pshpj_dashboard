@@ -1,7 +1,6 @@
 'use client';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useEffect, useState } from 'react';
-import useSwr from 'swr';
 // import {
 //   Pagination,
 //   PaginationContent,

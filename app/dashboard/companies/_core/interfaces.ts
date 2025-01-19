@@ -1,4 +1,4 @@
-export interface PostCompanySchema {
+export interface IPostCompanySchema {
   company_name: string;
   owner_name: string;
   national_number?: string;
@@ -20,7 +20,7 @@ export interface PostCompanySchema {
   letterhead?: File | null;
 }
 
-export interface PostBrandSchema {
+export interface IPostBrandSchema {
   name: string;
   company_id: string;
   logo: File | null;
@@ -37,7 +37,7 @@ export interface PostBrandSchema {
   en_name: string;
 }
 
-export interface CompaniesDynamicList {
+export interface ICompaniesDynamicList {
   company_name: string;
   id: string;
 }

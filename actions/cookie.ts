@@ -15,3 +15,15 @@ export async function setTokenToCookie(token: string) {
     console.log(error);
   }
 }
+
+export async function getAccessTokenCookie() {
+  try {
+    const token = (await cookies()).get('accessToken');
+
+    if (!token) return;
+
+    return token.value;
+  } catch (error) {
+    console.log(error);
+  }
+}

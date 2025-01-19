@@ -1,4 +1,4 @@
-import { PostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
+import { IPostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
 import { cn } from '@/lib/utils';
 import { HTMLProps } from 'react';
 import { RegisterOptions } from 'react-hook-form';
@@ -13,7 +13,7 @@ type TextAreaInputProps = {
   register: any;
   required?: boolean;
   placeholder?: string;
-  rules?: RegisterOptions<PostCompanySchema>;
+  rules?: RegisterOptions<IPostCompanySchema>;
   rows: number;
   className?: HTMLProps<HTMLElement>['className'];
 };

@@ -1,8 +1,8 @@
-import { RegisterOptions } from 'react-hook-form';
+import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
-import { PostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
+import { IPostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
 import { HTMLProps } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -10,10 +10,10 @@ type TextInputProps = {
   label: string;
   name: string;
   error?: string;
-  register: any;
+  register: UseFormRegister<any>;
   required?: boolean;
   placeholder?: string;
-  rules?: RegisterOptions<PostCompanySchema>;
+  rules?: RegisterOptions<IPostCompanySchema>;
   className?: HTMLProps<HTMLElement>['className'];
 };
 export default function TextInput({
@@ -35,7 +35,6 @@ export default function TextInput({
 
       <Input
         placeholder={placeholder}
-        name={name}
         type="text"
         {...register(name, rules)}
         className={cn(

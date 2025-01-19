@@ -4,45 +4,68 @@ import TextAreaInput from '@/components/modules/TexrAreaInput';
 import TextInput from '@/components/modules/TextInput';
 import { Button } from '@/components/ui/button';
 import { useForm } from 'react-hook-form';
-import { PostCompanySchema } from '../_core/interfaces';
-import { apiFetch } from '@/utils/api';
-import { ApiResponse } from '@/types/apiResponse';
+import { IPostCompanySchema } from '../_core/interfaces';
+import { PostCompanyAPI } from '../_core/requests';
+import { toast } from '@/hooks/use-toast';
+import ButtonLoading from '@/components/ui/buttonLoading';
 
 export default function RegisterCompanyForm() {
   // hooks
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<PostCompanySchema>();
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<IPostCompanySchema>();
 
-  //   handlers
-  const onSubmit = async (data: PostCompanySchema) => {
-    console.log(data);
+  const onSubmit = async (data: IPostCompanySchema) => {
     const formData = new FormData();
-    console.log(Object.entries(data));
 
-    Object.keys(data).forEach((item) => {
-      const key = item as keyof PostCompanySchema;
+    // console.log(Object.entries(data));
 
-      if (typeof data[key] === 'string') {
-        data[key].length > 0 && formData.append(key, data[key]);
-      } else {
-        console.log(typeof data);
-        const files = data as any;
-        files[key].length > 0 && formData.append(item, files[key]?.[0]);
+    // apend files[0] to react-hook-form form data
+    // Object.keys(data).forEach((item) => {
+    //   const key = item as keyof IPostCompanySchema;
+
+    //   if (typeof data[key] === 'string') {
+    //     data[key].length > 0 && formData.append(key, data[key]);
+    //   } else {
+    //     console.log(typeof data);
+    //     const files = data as any;
+    //     files[key].length > 0 && formData.append(item, files[key]?.[0]);
+    //   }
+    // });
+
+    Object.keys(data).forEach((key) => {
+      const value = data[key as keyof IPostCompanySchema];
+      if (typeof value === 'string') {
+        if (value.length > 0) {
+          formData.append(key, value);
+        }
+      } else if (value instanceof FileList && value.length > 0) {
+        formData.append(key, value[0]);
       }
     });
 
-    try {
-      const response = await apiFetch<ApiResponse<void>>('/panel/companies', {
-        method: 'POST',
-        body: formData,
-      });
+    console.log(data);
 
-      console.log(response);
-      console.log(formData);
-    } catch (error) {
+    try {
+      const response = await PostCompanyAPI({ data: formData });
+
+      if (!response) {
+        toast({
+          variant: 'destructive',
+          description: 'خطا در ایجاد شرکت!',
+        });
+        return;
+      }
+
+      toast({
+        variant: 'default',
+        description: 'شرکت با موفقیت ثبت شد!',
+      });
+      // reset();
+    } catch (error: unknown) {
       console.log(error);
     }
   };
@@ -231,8 +254,8 @@ export default function RegisterCompanyForm() {
           </div>
         </div>
 
-        <Button variant={'primary'} className="mt-4 w-full">
-          ثبت شرکت
+        <Button variant={'primary'} className="mt-4 w-full" disabled={isSubmitting}>
+          {isSubmitting ? <ButtonLoading /> : 'ثبت شرکت'}
         </Button>
       </form>
     </div>

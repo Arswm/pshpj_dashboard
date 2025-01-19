@@ -12,12 +12,12 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { useForm } from 'react-hook-form';
-import { CompaniesDynamicList, PostBrandSchema } from '../_core/interfaces';
+import { ICompaniesDynamicList, IPostBrandSchema } from '../_core/interfaces';
 
 export default function RegisterBrandForm({
-  companiesDynamicList,
+  ICompaniesDynamicList,
 }: {
-  companiesDynamicList: CompaniesDynamicList[];
+  ICompaniesDynamicList: ICompaniesDynamicList[];
 }) {
   const {
     register,
@@ -25,15 +25,15 @@ export default function RegisterBrandForm({
     formState: { errors },
     setValue,
     reset,
-  } = useForm<PostBrandSchema>();
+  } = useForm<IPostBrandSchema>();
 
-  const onSubmit = async (data: PostBrandSchema) => {
+  const onSubmit = async (data: IPostBrandSchema) => {
     console.log(data);
     const formData = new FormData();
     console.log(Object.entries(data));
 
     Object.keys(data).forEach((item) => {
-      const key = item as keyof PostBrandSchema;
+      const key = item as keyof IPostBrandSchema;
 
       if (typeof data[key] === 'string') {
         data[key].length > 0 && formData.append(key, data[key]);
@@ -80,7 +80,7 @@ export default function RegisterBrandForm({
                 <SelectValue placeholder="انتخاب شرکت" />
               </SelectTrigger>
               <SelectContent>
-                {companiesDynamicList?.map((item) => (
+                {ICompaniesDynamicList?.map((item) => (
                   <SelectItem key={item.id} value={item.id.toString()}>
                     {item.company_name}
                   </SelectItem>
