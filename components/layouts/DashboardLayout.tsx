@@ -11,8 +11,7 @@ import {
   User,
 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Import useRouter
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,12 +26,7 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [userDropdDown, setUserDropDown] = useState(false);
-
-  const pathname = usePathname();
-  useEffect(() => {
-    setUserDropDown(false);
-  }, [pathname]);
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <div className="flex h-screen relative">
@@ -48,7 +42,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       {/* Main Content */}
       <main className="flex-1 mr-0 md:mr-80">
         <header className="flex relative py-4 p-4 border-b">
-          <DropdownMenu>
+          <DropdownMenu open={openMenu} onOpenChange={setOpenMenu}>
             <DropdownMenuTrigger className="outline-none border-none ring-0">
               <div className="flex gap-2 items-center">
                 <Avatar className={"select-none"}>
@@ -61,7 +55,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
                 </div>
               </div>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="px-4">
+            <DropdownMenuContent
+              className="px-4"
+              onClick={() => setOpenMenu(false)}
+            >
               <DropdownMenuSeparator />
               <DropdownMenuItem>
                 <Link

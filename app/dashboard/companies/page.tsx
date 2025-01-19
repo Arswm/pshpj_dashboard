@@ -4,6 +4,8 @@ import RegisterBrandForm from "@/app/dashboard/companies/_components/RegisterBra
 import { apiFetch } from "@/utils/api";
 import { ApiResponse } from "@/types/apiResponse";
 import { CompaniesDynamicList } from "./_core/interfaces";
+import BrandsContent from "./_components/BrandsContent";
+import CompaniesContent from "./_components/CompaniesContent";
 
 async function CompaniesPage() {
   let { data: companiesDynamicList } = await apiFetch<CompaniesDynamicList[]>(
@@ -12,15 +14,15 @@ async function CompaniesPage() {
 
   return (
     <>
-      <div className={"grid gap-4 grid-cols-2"}>
-        <Tabs dir="rtl" defaultValue="account" className="w-full grid gap-4">
+      <Tabs dir="rtl" defaultValue="Company" className="w-full grid gap-4">
+        <div className={"grid gap-4 grid-cols-2"}>
           <div className="bg-white p-2 rounded-lg shadow">
             <TabsList className={"w-full min-h-14 gap-2"}>
               <TabsTrigger
                 className={
                   "w-full h-full data-[state=active]:text-white data-[state=active]:bg-primary"
                 }
-                value="account"
+                value="Company"
               >
                 ثبت شرکت
               </TabsTrigger>
@@ -28,23 +30,33 @@ async function CompaniesPage() {
                 className={
                   "w-full h-full data-[state=active]:text-white data-[state=active]:bg-primary"
                 }
-                value="password"
+                value="Brands"
               >
                 ثبت برند
               </TabsTrigger>
             </TabsList>
+            <div className="p-2">
+              <TabsContent value="Company">
+                <RegisterCompanyForm />
+              </TabsContent>
+              <TabsContent value="Brands">
+                <RegisterBrandForm
+                  companiesDynamicList={companiesDynamicList}
+                />
+              </TabsContent>
+            </div>
           </div>
-          <div className="bg-white shadow rounded-lg p-2">
-            <TabsContent value="account">
-              <RegisterCompanyForm />
-            </TabsContent>
-            <TabsContent value="password">
-              <RegisterBrandForm companiesDynamicList={companiesDynamicList} />
-            </TabsContent>
-          </div>
-        </Tabs>
-        <div className={"bg-white p-4 rounded"}>left</div>
-      </div>
+          <TabsContent value="Company">
+            <CompaniesContent />
+          </TabsContent>
+
+          <TabsContent value="Brands">
+       
+              <BrandsContent />
+           
+          </TabsContent>
+        </div>
+      </Tabs>
     </>
   );
 }

@@ -27,6 +27,8 @@ export default {
         primary: "#3c50e0",
         "navy-blue": "#1c2434",
         "tabs-gray": "#f7fafc",
+        customGray: "#263B5E",
+        customBlue: "#af49c7d"
       },
       borderRadius: {
         lg: "var(--radius)",
