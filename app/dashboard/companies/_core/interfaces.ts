@@ -41,3 +41,33 @@ export interface ICompaniesDynamicList {
   company_name: string;
   id: string;
 }
+
+export interface IGetCompanySchema {
+  id: number;
+  company_name: string;
+  owner_name: string;
+  national_number?: string;
+  telephone_number: string;
+  registration_number?: string;
+  economic_identifier?: string;
+  postal_code?: string;
+  website?: string;
+  access_token?: string;
+  address?: string;
+  tax?: number;
+  ir_sheba?: string;
+  card_number?: string;
+  card_owner_name?: string;
+  created_at?: string;
+  updated_at?: string;
+  logo?: string;
+  letterhead?: string;
+  seal?: string;
+  signature?: string;
+}
+
+export interface IGetCompanyProps {
+  currentPage: number;
+  per_page: number;
+  search: string;
+}

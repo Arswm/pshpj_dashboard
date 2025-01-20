@@ -1,8 +1,8 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import RegisterCompanyForm from './_components/RegisterCompanyForm';
 import RegisterBrandForm from '@/app/dashboard/companies/_components/RegisterBrandForm';
-import BrandsContent from './_components/BrandsContent';
-import CompaniesContent from './_components/CompaniesContent';
+import BrandsContent from './_components/BrandsList';
+import CompaniesContent from './_components/CompaniesList';
 
 async function CompaniesPage() {
   // /api/v1/panel/list/companies
@@ -11,7 +11,7 @@ async function CompaniesPage() {
     <>
       <Tabs dir="rtl" defaultValue="company" className="w-full grid gap-4">
         <div className={'grid gap-4 grid-cols-2'}>
-          <div className="bg-white p-2 rounded-lg shadow">
+          <div className="bg-white p-2 rounded-lg shadow h-full">
             <TabsList className={'w-full min-h-14 gap-2'}>
               <TabsTrigger
                 className="w-full h-full data-[state=active]:text-white data-[state=active]:bg-primary"
@@ -36,7 +36,7 @@ async function CompaniesPage() {
             </div>
           </div>
 
-          <div>
+          <div className="bg-white p-2 rounded-lg shadow h-full">
             <TabsContent value="company">
               <CompaniesContent />
             </TabsContent>
