@@ -28,12 +28,15 @@ export default {
         'navy-blue': '#1c2434',
         'tabs-gray': '#f7fafc',
         customGray: '#263B5E',
-        customBlue: '#af49c7d',
+        customBlue: '#002C3F',
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      backgroundImage: {
+        hero: "url('/images/home/hero.webp')",
       },
     },
   },
