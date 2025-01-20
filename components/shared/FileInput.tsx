@@ -1,22 +1,22 @@
-import { RegisterOptions, UseFormRegister } from 'react-hook-form';
+import { cn } from '@/lib/utils';
+import { HTMLProps } from 'react';
+import type { RegisterOptions, UseFormRegister } from 'react-hook-form';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
-import { IPostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
-import { HTMLProps } from 'react';
-import { cn } from '@/lib/utils';
 
-type TextInputProps = {
+type FileInputProps = {
   label: string;
   name: string;
   error?: string;
   register: UseFormRegister<any>;
   required?: boolean;
   placeholder?: string;
-  rules?: RegisterOptions<IPostCompanySchema>;
+  accept: string;
+  rules?: RegisterOptions<any>;
   className?: HTMLProps<HTMLElement>['className'];
 };
-export default function TextInput({
+export default function FileInput({
   label,
   name,
   register,
@@ -24,8 +24,9 @@ export default function TextInput({
   error,
   rules,
   placeholder,
+  accept,
   className,
-}: TextInputProps) {
+}: FileInputProps) {
   return (
     <div className="w-full">
       <Label>
@@ -35,12 +36,16 @@ export default function TextInput({
 
       <Input
         placeholder={placeholder}
-        type="text"
+        type="file"
+        accept={accept}
         {...register(name, rules)}
         className={cn(
           'w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary',
           className,
         )}
+        // onChange={async (e) => {
+        //   await register("avatar").onChange(e.target.files?.[0]);
+        // }}
       />
 
       {error && (

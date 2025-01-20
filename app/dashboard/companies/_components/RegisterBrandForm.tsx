@@ -1,7 +1,7 @@
 'use client';
-import FileInput from '@/components/modules/FileInput';
-import TextAreaInput from '@/components/modules/TexrAreaInput';
-import TextInput from '@/components/modules/TextInput';
+import FileInput from '@/components/shared/FileInput';
+import TextAreaInput from '@/components/shared/TexrAreaInput';
+import TextInput from '@/components/shared/TextInput';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import {
@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { useForm } from 'react-hook-form';
+import { useForm, UseFormRegister } from 'react-hook-form';
 import { ICompaniesDynamicList, IPostBrandSchema } from '../_core/interfaces';
 import { PostBrandAPI } from '../_core/requests';
 import { toast } from '@/hooks/use-toast';
@@ -224,7 +224,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
 
           <div className="col-span-2">
             <FileInput
-              register={register}
+              register={register as UseFormRegister<IPostBrandSchema>}
               label="لوگو برند"
               error={errors.logo?.message}
               name="logo"

@@ -9,7 +9,9 @@ export type ILoginResponse =
       message?: {
         message: string[];
       };
-      errors?: {};
+      errors?: {
+        [key: string]: string[];
+      };
     }
   | undefined;
 

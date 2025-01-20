@@ -2,10 +2,10 @@
 import LogoImage from '@/assets/images/logo-pshpj-min.png';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { MenuIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { RxHamburgerMenu } from 'react-icons/rx';
 
 export default function Home() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -48,7 +48,7 @@ export default function Home() {
             </Link>
 
             <Button onClick={() => setOpenMenu((prev) => !prev)}>
-              <RxHamburgerMenu className="!size-5" />
+              <MenuIcon className="!size-5" />
             </Button>
           </div>
           <div

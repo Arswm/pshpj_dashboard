@@ -1,7 +1,7 @@
 'use client';
-import FileInput from '@/components/modules/FileInput';
-import TextAreaInput from '@/components/modules/TexrAreaInput';
-import TextInput from '@/components/modules/TextInput';
+import FileInput from '@/components/shared/FileInput';
+import TextAreaInput from '@/components/shared/TexrAreaInput';
+import TextInput from '@/components/shared/TextInput';
 import { Button } from '@/components/ui/button';
 import { useForm } from 'react-hook-form';
 import { IPostCompanySchema } from '../_core/interfaces';
