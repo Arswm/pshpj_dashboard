@@ -8,7 +8,6 @@ export async function PostCompanyAPI({ data }: { data: FormData }) {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
       },
       body: data,

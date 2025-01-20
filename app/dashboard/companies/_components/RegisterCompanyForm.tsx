@@ -21,21 +21,6 @@ export default function RegisterCompanyForm() {
   const onSubmit = async (data: IPostCompanySchema) => {
     const formData = new FormData();
 
-    // console.log(Object.entries(data));
-
-    // apend files[0] to react-hook-form form data
-    // Object.keys(data).forEach((item) => {
-    //   const key = item as keyof IPostCompanySchema;
-
-    //   if (typeof data[key] === 'string') {
-    //     data[key].length > 0 && formData.append(key, data[key]);
-    //   } else {
-    //     console.log(typeof data);
-    //     const files = data as any;
-    //     files[key].length > 0 && formData.append(item, files[key]?.[0]);
-    //   }
-    // });
-
     Object.keys(data).forEach((key) => {
       const value = data[key as keyof IPostCompanySchema];
       if (typeof value === 'string') {
@@ -46,8 +31,6 @@ export default function RegisterCompanyForm() {
         formData.append(key, value[0]);
       }
     });
-
-    console.log(data);
 
     try {
       const response = await PostCompanyAPI({ data: formData });
@@ -64,7 +47,7 @@ export default function RegisterCompanyForm() {
         variant: 'default',
         description: 'شرکت با موفقیت ثبت شد!',
       });
-      // reset();
+      reset();
     } catch (error: unknown) {
       console.log(error);
     }
@@ -95,7 +78,7 @@ export default function RegisterCompanyForm() {
           <TextInput
             register={register}
             label="مدیر عامل"
-            error={errors.company_name?.message}
+            error={errors.owner_name?.message}
             name="owner_name"
             required
             rules={{
