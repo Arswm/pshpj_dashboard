@@ -3,9 +3,10 @@ import RegisterCompanyForm from './_components/RegisterCompanyForm';
 import RegisterBrandForm from '@/app/dashboard/companies/_components/RegisterBrandForm';
 import BrandsContent from './_components/BrandsList';
 import CompaniesContent from './_components/CompaniesList';
+import { GetDynamicList } from './_core/requests';
 
 async function CompaniesPage() {
-  // /api/v1/panel/list/companies
+  const dynamicList = await GetDynamicList();
 
   return (
     <>
@@ -31,7 +32,7 @@ async function CompaniesPage() {
                 <RegisterCompanyForm />
               </TabsContent>
               <TabsContent value="brands">
-                <RegisterBrandForm ICompaniesDynamicList={[]} />
+                <RegisterBrandForm companies={dynamicList?.data || []} />
               </TabsContent>
             </div>
           </div>

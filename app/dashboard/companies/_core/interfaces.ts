@@ -71,3 +71,20 @@ export interface IGetCompanyProps {
   per_page: number;
   search: string;
 }
+
+export type IDynamicListResponse =
+  | {
+      success: boolean;
+      data: ICompaniesDynamicList[];
+    }
+  | undefined;
+
+export type IPostBrandResponse =
+  | {
+      success?: boolean;
+      message: string;
+      errors?: {
+        [key: string]: string[];
+      };
+    }
+  | undefined;

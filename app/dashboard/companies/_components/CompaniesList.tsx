@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { GetCompanies } from '../_core/requests';
 import { IGetCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
+import { toast } from '@/hooks/use-toast';
 
 export default function CompaniesContent() {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -19,12 +20,18 @@ export default function CompaniesContent() {
     try {
       const response = await GetCompanies({ currentPage, per_page: 15, search: '' });
 
-      const CompanyList: IGetCompanySchema[] = response.data.data;
-      if (response.success) {
-        setCompanies((prev) => [...prev, ...CompanyList]);
-        setLastPage(response.data.last_page);
+      if (!response || !response.success) {
+        toast({
+          variant: 'destructive',
+          description: 'خطا در دریافت اطلاعات شرکت ها!',
+        });
+        return;
       }
-    } catch (error) {
+
+      const CompanyList: IGetCompanySchema[] = response.data.data;
+      setCompanies((prev) => [...prev, ...CompanyList]);
+      setLastPage(response.data.last_page);
+    } catch (error: unknown) {
       console.error('Error fetching data:', error);
     } finally {
       isFetching.current = false; // Allow subsequent requests
@@ -35,7 +42,6 @@ export default function CompaniesContent() {
     if (observerRef.current) observerRef.current.disconnect();
 
     const observerCallback: IntersectionObserverCallback = (entries) => {
-      console.log(entries);
       if (entries[0].isIntersecting && currentPage <= lastPage && !isFetching.current) {
         setCurrentPage((prevPage) => prevPage + 1); // Update page number
       }
@@ -66,6 +72,7 @@ export default function CompaniesContent() {
           key={key}
           className={'p-2'}
         >
+          ``
           <p>companyname: {value?.company_name}</p>
           <p>index: {key}</p>
         </div>

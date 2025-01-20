@@ -13,51 +13,70 @@ import {
 } from '@/components/ui/select';
 import { useForm } from 'react-hook-form';
 import { ICompaniesDynamicList, IPostBrandSchema } from '../_core/interfaces';
+import { PostBrandAPI } from '../_core/requests';
+import { toast } from '@/hooks/use-toast';
+import ButtonLoading from '@/components/ui/buttonLoading';
 
-export default function RegisterBrandForm({
-  ICompaniesDynamicList,
-}: {
-  ICompaniesDynamicList: ICompaniesDynamicList[];
-}) {
+export default function RegisterBrandForm({ companies }: { companies: ICompaniesDynamicList[] }) {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     setValue,
     reset,
   } = useForm<IPostBrandSchema>();
 
   const onSubmit = async (data: IPostBrandSchema) => {
-    console.log(data);
-    const formData = new FormData();
-    console.log(Object.entries(data));
-
-    Object.keys(data).forEach((item) => {
-      const key = item as keyof IPostBrandSchema;
-
-      if (typeof data[key] === 'string') {
-        data[key].length > 0 && formData.append(key, data[key]);
-      } else {
-        console.log(typeof data);
-        const files = data as any;
-        files[key].length > 0 && formData.append(item, files[key]?.[0]);
-      }
-    });
-
     try {
-      // const response = await apiFetch<ApiResponse<void>>('/panel/brands', {
-      //   method: 'POST',
-      //   body: formData,
-      // });
+      const formData = new FormData();
 
-      // if (!response) {
-      //   console.log("khata darim");
-      //   return;
-      // }
+      Object.keys(data).forEach((key) => {
+        const value = data[key as keyof IPostBrandSchema];
+        if (typeof value === 'string' && value.length > 0) {
+          formData.append(key, value);
+        } else if (value instanceof FileList && value.length > 0) {
+          formData.append(key, value[0]);
+        }
+      });
 
-      reset();
-      setValue('company_id', '');
-    } catch (error) {
+      const response = await PostBrandAPI({ data: formData });
+
+      if (!response) {
+        toast({
+          variant: 'destructive',
+          description: 'خطا در ارسال اطلاعات!',
+        });
+        return;
+      }
+
+      if (response.errors) {
+        const allErrors: string[] = [];
+
+        Object.keys(response.errors).forEach((field) => {
+          const errorMessages = response?.errors?.[field]?.join(', ') || 'خطای نامشخص';
+          allErrors.push(`${errorMessages}`);
+        });
+
+        allErrors.forEach((error, index) => {
+          setTimeout(() => {
+            toast({
+              variant: 'destructive',
+              description: error || 'خطای نامشخص!',
+            });
+          }, index * 200);
+        });
+        return;
+      }
+
+      if (response.success) {
+        toast({
+          variant: 'default',
+          description: response.message,
+        });
+        reset();
+        setValue('company_id', '');
+      }
+    } catch (error: unknown) {
       console.log(error);
     }
   };
@@ -80,11 +99,15 @@ export default function RegisterBrandForm({
                 <SelectValue placeholder="انتخاب شرکت" />
               </SelectTrigger>
               <SelectContent>
-                {ICompaniesDynamicList?.map((item) => (
-                  <SelectItem key={item.id} value={item.id.toString()}>
-                    {item.company_name}
-                  </SelectItem>
-                ))}
+                {companies?.length ? (
+                  companies.map((company) => (
+                    <SelectItem key={company.id} value={company.id.toString()}>
+                      {company.company_name}
+                    </SelectItem>
+                  ))
+                ) : (
+                  <SelectItem value={''}>موردی یافت نشد</SelectItem>
+                )}
               </SelectContent>
             </Select>
           </div>
@@ -229,8 +252,8 @@ export default function RegisterBrandForm({
           </div>
         </div>
 
-        <Button variant={'primary'} className="mt-4 w-full">
-          ثبت شرکت
+        <Button variant={'primary'} className="mt-4 w-full" disabled={isSubmitting}>
+          {isSubmitting ? <ButtonLoading /> : 'ثبت شرکت'}
         </Button>
       </form>
     </div>

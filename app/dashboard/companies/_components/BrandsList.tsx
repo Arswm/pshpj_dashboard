@@ -1,11 +1,4 @@
 'use client';
 export default function BrandsList() {
-
-
-  return ( 
-    <div >
-      inja
-    </div>
-  )
-    
+  return <div>inja</div>;
 }
