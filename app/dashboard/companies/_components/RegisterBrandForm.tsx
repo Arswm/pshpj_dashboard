@@ -106,7 +106,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
                     </SelectItem>
                   ))
                 ) : (
-                  <SelectItem value={''}>موردی یافت نشد</SelectItem>
+                  <SelectItem value={'موردی یافت نشد'}>موردی یافت نشد</SelectItem>
                 )}
               </SelectContent>
             </Select>
