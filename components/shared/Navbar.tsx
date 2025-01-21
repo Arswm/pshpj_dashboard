@@ -135,7 +135,7 @@ export default function Navbar() {
             </div>
 
             {isOpemDropdown && (
-              <ul className="px-4 py-1 space-y-4 text-xs border-b ">
+              <ul className="px-4 py-1 space-y-4 text-xs border-b bg-gray-100">
                 <li>
                   <Link
                     className=" block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
