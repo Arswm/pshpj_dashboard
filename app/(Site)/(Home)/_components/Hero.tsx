@@ -28,18 +28,12 @@ export default function Hero() {
             <p>شناسه ملی ۱۴۰۰۷۳۲۱۷۸۸</p>
           </div>
         </div>
-        <div className="mt-10 lg:mt-20">
-          <div className="flex items-center flex-col lg:flex-row gap-8">
-            {/* <Button variant="secondary" size="lg">
-              دریافت اطلاعات شرکت
-            </Button>
-            <Button variant="blog" size="lg">
-              021-71053977
-            </Button> */}
-            <button className="h-12 px-[30px] text-base rounded-sm border-2 bg-transparent hover:bg-white hover:text-black transition-all duration-300">
+        <div className="mt-10 lg:mt-20 w-full md:w-auto">
+          <div className="flex items-center px-4 md:px-0 flex-col lg:flex-row gap-8">
+            <button className="h-12 w-full md:w-56  text-base rounded-sm border-2 bg-transparent hover:bg-white hover:text-black transition-all duration-300">
               دریافت اطلاعات شرکت
             </button>
-            <button className="h-12 px-[30px] text-base rounded-sm border-2 bg-white text-black hover:text-white hover:bg-transparent transition-all duration-300">
+            <button className="h-12 w-full md:w-56  text-base rounded-sm border-2 bg-white text-black hover:text-white hover:bg-transparent transition-all duration-300">
               021-71053977
             </button>
           </div>

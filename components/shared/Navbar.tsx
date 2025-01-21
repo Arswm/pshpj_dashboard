@@ -1,18 +1,45 @@
 'use client';
-import LogoImage from '@/public/images/navbar/logo-pshpj-min.png';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import LogoImage from '@/public/images/navbar/logo-pshpj-min.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { IoChevronUp, IoClose } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
+const anotherSites = [
+  {
+    title: 'پلاسینگ',
+    href: 'https://plusing.ir/',
+  },
+  {
+    title: 'نارینگ',
+    href: 'https://naring.agency/',
+  },
+  {
+    title: 'یک پیامک',
+    href: 'https://yekpayamak.com/',
+  },
+  {
+    title: 'گرافیک دینگ',
+    href: 'https://graphicding.com/',
+  },
+  {
+    title: 'چاپزی',
+    href: 'https://chapzi.com',
+  },
+  {
+    title: 'کجاباما',
+    href: 'https://kojabama.com',
+  },
+];
+
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [isOpemDropdown, setIsOpemDropdown] = useState(false);
   return (
-    <header className="sticky left-0 right-0 top-0 bg-white z-30 w-full border-b border-gray-50 shadow-sm">
+    <header className=" bg-white w-full border-b border-gray-50 shadow-sm">
       <div className="container mx-auto p-4 xl:p-5 flex justify-between sm:justify-center items-center gap-4 lg:gap-14">
         <div className="w-[125px]">
           <Image src={LogoImage} alt="Logo" />
@@ -28,57 +55,19 @@ export default function Navbar() {
                 <IoChevronUp className="size-4 transition-all group-hover:rotate-180" />
               </div>
 
-              <div className="absolute border border-customBlue bg-white p-2 rounded left-0 right-0 hidden group-hover:block">
+              <div className="absolute shadow shadow-primary bg-white p-2 rounded left-0 right-0 hidden group-hover:block">
                 <div className="h-full w-full flex flex-col items-center justify-center">
                   <ul>
-                    <li>
-                      <Link
-                        className="px-1 py-2 block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
-                        href="#"
-                      >
-                        پلاسینگ
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="px-1 py-2 block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
-                        href="#"
-                      >
-                        نارینگ
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="px-1 py-2 block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
-                        href="#"
-                      >
-                        یک پیامک
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="px-1 py-2 block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
-                        href="#"
-                      >
-                        گرافیک دینگ
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="px-1 py-2 block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
-                        href="#"
-                      >
-                        چاپزی
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        className="px-1 py-2 block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
-                        href="#"
-                      >
-                        کجاباما
-                      </Link>
-                    </li>
+                    {anotherSites.map((item) => (
+                      <li key={item.title}>
+                        <Link
+                          className="px-1 py-3 block text-gray-900 md:text-xs lg:text-sm hover:text-primary"
+                          href={item.href}
+                        >
+                          {item.title}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
