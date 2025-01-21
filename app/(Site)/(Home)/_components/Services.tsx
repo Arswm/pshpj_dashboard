@@ -195,12 +195,12 @@ export default function Services() {
         </div>
 
         {/* text content */}
-        <div className="absolute inset-0 flex justify-center mt-40 text-white text-justify px-4">
-          <div className="space-y-4">
+        <div className="absolute inset-0 flex justify-center mt-40 md:mt-52 text-white text-justify px-4">
+          <div className="space-y-4 md:space-y-8">
             <h1 className="text-4xl md:text-5xl text-center">
               خــدمــات پــردیـــس شگفت پارس جنوب
             </h1>
-            <p className="max-w-3xl ">
+            <p className="max-w-3xl sm:text-center">
               در حال حاضر شرکت پردیس شگفت پارس جنوب دارای سه آژانس دیجیتال مارکتینگ با برند های
               پلاسینگ، نارینگ و یک پیامک بوده که در حوزهای تولید محتوا بصری و وب فارسی و اس ام اس
               مارکتینگ فعالیت می‌کند، در ادامه به تمام خدمات این آژانس ها پرداخته ایم.
@@ -211,23 +211,45 @@ export default function Services() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full px-2 sm:px-4 -translate-y-32 md:-translate-y-40 max-w-6xl mx-auto">
         {servicesItems.map((item) => (
-          <div
-            key={item.title}
-            className="relative text-white before:content-[''] before:absolute before:inset-0 before:size-full before:bg-black/30"
-          >
-            <Image
-              className="block w-full object-cover repeat-0 h-64 md:h-auto rounded shadow-lg lg:h-80"
-              src={item.image}
-              alt={item.title}
-            />
+          <div key={item.title} className="relative text-white group overflow-hidden">
+            <div className="relative w-full h-64 md:h-auto lg:h-80">
+              <Image
+                className="block w-full object-cover h-full rounded shadow-lg group-hover:scale-125 transition-all group-hover:rotate-3 duration-300"
+                src={item.image}
+                alt={item.title}
+              />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-300"></div>
+            </div>
             <div
               className="absolute right-0 bottom-0 pr-3 lg:pr-5 pb-6 text-2xl lg:text-3xl"
               style={{ textShadow: '1px 1px 2px black' }}
             >
-              <Link href={item.link}>{item.title}</Link>
+              <Link href={item.link} className="group-hover:font-bold transition-all duration-300">
+                {item.title}
+              </Link>
             </div>
           </div>
         ))}
+
+        <div className="col-span-2 mt-20 relative  before:content-[''] before:absolute before:inset-0 before:size-full before:bg-[#003E92]/70">
+          <Image
+            src={BannerImage}
+            alt="Banner"
+            className="h-[232px] lg:h-[164px] block w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 flex lg:flex-row flex-col items-center justify-between size-full py-4 lg:py-8 px-4 lg:px-16">
+            <div className="text-white h-full flex flex-col items-center justify-evenly">
+              <p className="text-2xl lg:text-5xl">با شرکت ما تماس بگیرید</p>
+              <span className="text-base lg:text-lg">
+                کسب و کار شما را متحول خواهیم کرد ، فقط کافیه با ما تماس بگیرید.
+              </span>
+            </div>
+
+            <button className="h-12 w-full md:w-56  text-base rounded-sm border-2 bg-white text-black hover:text-white hover:bg-transparent transition-all duration-300">
+              021-71053977
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export default {
         center: true,
       },
       screens: {
-        xs: "380px"
+        xs: '380px',
       },
       keyframes: {
         'caret-blink': {
@@ -40,8 +40,7 @@ export default {
       },
       backgroundImage: {
         hero: "url('/images/home/hero.webp')",
-        "web-services": "url('/images/home/image-02-min.jpg')"
-        
+        'web-services': "url('/images/home/image-02-min.jpg')",
       },
     },
   },
