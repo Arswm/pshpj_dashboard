@@ -14,9 +14,8 @@ import {
 import { useForm, UseFormRegister } from 'react-hook-form';
 import { ICompaniesDynamicList, IPostBrandSchema } from '../_core/interfaces';
 import { PostBrandAPI } from '../_core/requests';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import ButtonLoading from '@/components/ui/buttonLoading';
-
 export default function RegisterBrandForm({ companies }: { companies: ICompaniesDynamicList[] }) {
   const {
     register,
@@ -42,10 +41,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
       const response = await PostBrandAPI({ data: formData });
 
       if (!response) {
-        toast({
-          variant: 'destructive',
-          description: 'خطا در ارسال اطلاعات!',
-        });
+        toast.error('some shit happened');
         return;
       }
 
@@ -59,20 +55,14 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
 
         allErrors.forEach((error, index) => {
           setTimeout(() => {
-            toast({
-              variant: 'destructive',
-              description: error || 'خطای نامشخص!',
-            });
+            toast.error(error || 'خطای نامشخص!');
           }, index * 200);
         });
         return;
       }
 
       if (response.success) {
-        toast({
-          variant: 'default',
-          description: response.message,
-        });
+        toast.success(response.message || 'ثبت برند موفقیت آمیز بود');
         reset();
         setValue('company_id', '');
       }

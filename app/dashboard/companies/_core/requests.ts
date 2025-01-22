@@ -35,10 +35,6 @@ export async function PostBrandAPI({ data }: { data: FormData }): Promise<IPostB
       body: data,
     });
 
-    // if (!response.ok) {
-    //   throw new Error('failed to post brand!');
-    // }
-
     return await response.json();
   } catch (error: unknown) {
     console.log(error);
