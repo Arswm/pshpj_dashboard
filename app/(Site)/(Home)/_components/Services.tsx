@@ -138,7 +138,7 @@ export default function Services() {
   return (
     <div>
       {/* brands mobile */}
-      <div className="px-2 grid grid-cols-2 justify-items-center gap-2 xs:translate-y-20 md:hidden z-50 relative">
+      <div className="px-2 grid grid-cols-2 justify-items-center gap-4 xs:translate-y-20 md:hidden z-50 relative">
         <div className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white">
           <Link href="#">
             <Image src={Plusing} alt="Plusing" />
@@ -176,7 +176,7 @@ export default function Services() {
         <Image
           src={BannerImage}
           alt="banner"
-          className="block w-full object-cover object-center h-[560px] sm:h-[633px] lg:h-auto"
+          className="block w-full object-cover object-center h-[560px] sm:h-[633px]"
         />
         {/* brands screen */}
         <div className="max-w-6xl px-2 md:px-4 mx-auto top-0 -translate-y-1/2 absolute left-0 right-0 hidden md:block">
@@ -184,7 +184,7 @@ export default function Services() {
             {sites.map((item) => (
               <div
                 key={item.alt}
-                className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white hover:scale-105 hover:rotate-1 transition-all"
+                className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white hover:scale-105 transition-all"
               >
                 <Link href={item.href}>
                   <Image src={item.image} alt={item.alt} />
@@ -197,7 +197,7 @@ export default function Services() {
         {/* text content */}
         <div className="absolute inset-0 flex justify-center mt-40 md:mt-52 text-white text-justify px-4">
           <div className="space-y-4 md:space-y-8">
-            <h1 className="text-4xl md:text-5xl text-center">
+            <h1 className="text-3xl md:text-5xl text-center">
               خــدمــات پــردیـــس شگفت پارس جنوب
             </h1>
             <p className="max-w-3xl sm:text-center">
@@ -214,7 +214,7 @@ export default function Services() {
           <div key={item.title} className="relative text-white group overflow-hidden">
             <div className="relative w-full h-64 md:h-auto lg:h-80">
               <Image
-                className="block w-full object-cover h-full rounded shadow-lg group-hover:scale-125 transition-all group-hover:rotate-3 duration-300"
+                className="block w-full object-cover h-full rounded shadow-lg group-hover:scale-110 transition-all duration-300"
                 src={item.image}
                 alt={item.title}
               />

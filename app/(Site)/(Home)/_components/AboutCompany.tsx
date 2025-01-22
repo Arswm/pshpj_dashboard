@@ -52,10 +52,15 @@ export default function AboutCompany() {
             <div
               className={cn(
                 'overflow-hidden transition-all duration-300',
-                readMore ? 'h-80' : 'h-0',
+                readMore ? 'h-80' : 'h-14',
               )}
             >
-              <p className="text-base/6">
+              <p
+                className={cn(
+                  'text-base/6 text-justify ',
+                  readMore ? 'line-clamp-none' : 'line-clamp-2',
+                )}
+              >
                 شرکت در سال ۱۳۹۶ تاسیس گردیده که با موضوع ارائه خدمات در بستر اینترنت و اپلیکیشن از
                 جمله خدمات تبلیغاتی و گرافیکی فروش محصولات شروع به کار کرده است امروزه با توجه به
                 گسترش ارتباطات اینترنتی شرکت پردیس شگفت پارس جنوب در زمینه تبلیغات موشن گرافیک ،
@@ -63,7 +68,7 @@ export default function AboutCompany() {
                 دهد. تعاریف مختلفی برای چشم انداز بیان شده است که از آن جمله می‌توان به موارد ذیل
                 اشاره نمود:
               </p>
-              <ul className="px-4 py-1 lg:py-2 lg:px-6 ">
+              <ul className={cn('px-4 py-1 lg:py-2 lg:px-6 ', readMore ? 'block' : 'hidden')}>
                 <li>
                   <b>1. </b>
                   <span>تولیدات سریع و ارزان با زیر ساخت های آنلاین</span>
@@ -84,9 +89,9 @@ export default function AboutCompany() {
                 className="bg-[#54595F] text-white duration-500 !p-6 mx-auto"
                 onClick={() => setReadMore((prev) => !prev)}
               >
-                مشاهده
+                <span>{!readMore ? 'مشاهده' : 'کمتر'}</span>
                 <i>
-                  <ChevronDown className="!size-5" />
+                  <ChevronDown className={cn('!size-5', readMore ? 'rotate-180' : 'rotate-0')} />
                 </i>
               </Button>
             </div>

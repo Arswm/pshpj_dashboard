@@ -41,6 +41,7 @@ export default {
       backgroundImage: {
         hero: "url('/images/home/hero.webp')",
         'web-services': "url('/images/home/image-02-min.jpg')",
+        'bg-contact': "url('/images/contact/world-map-png-35418.png')",
       },
     },
   },
