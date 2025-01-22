@@ -10,7 +10,7 @@ import Timer from '@/components/ui/Timer';
 import { setTokenToCookie } from '@/actions/cookie';
 import { useRouter } from 'next/navigation';
 import { VerifyCodeAPI } from '../_core/requests';
-import { toast } from 'sonner'
+import { toast } from 'sonner';
 
 function OtpForm() {
   const router = useRouter();
@@ -26,7 +26,7 @@ function OtpForm() {
       const response = await VerifyCodeAPI(formattedData);
 
       if (!response?.success) {
-        toast.error(response?.errors?.message?.[0])
+        toast.error(response?.errors?.message?.[0]);
         return;
       }
 

@@ -231,7 +231,7 @@ export default function Services() {
           </div>
         ))}
 
-        <div className="col-span-2 mt-20 relative  before:content-[''] before:absolute before:inset-0 before:size-full before:bg-[#003E92]/70">
+        <div className="md:col-span-2 mt-20 relative  before:content-[''] before:absolute before:inset-0 before:size-full before:bg-[#003E92]/70">
           <Image
             src={BannerImage}
             alt="Banner"

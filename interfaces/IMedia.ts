@@ -1,4 +1,4 @@
-import { MediaType } from "./IType";
+import { MediaType } from './IType';
 
 export interface IMedia {
   id: string;
