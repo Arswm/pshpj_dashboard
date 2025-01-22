@@ -39,11 +39,11 @@ export interface IPostBrandSchema {
   en_name: string;
 }
 
-export interface IGetBrand  {
-  id: string
-  name: string
-  company_name: string
-  logo: IMedia
+export interface IGetBrand {
+  id: string;
+  name: string;
+  company_name: string;
+  logo: IMedia;
 }
 
 export interface ICompaniesDynamicList {
