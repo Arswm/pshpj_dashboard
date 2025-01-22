@@ -1,19 +1,18 @@
 'use client';
-
 import { useEffect, useRef, useState } from 'react';
 import { GetBrands } from '../_core/requests';
-import { IGetCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 import { Label } from '@radix-ui/react-dropdown-menu';
+import { IGetBrand } from '../_core/interfaces';
 
-export default function CompaniesList() {
+export default function BrandsList() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [lastPage, setLastPage] = useState<number>(1);
-  const [companies, setCompanies] = useState<IGetCompanySchema[]>([]);
+  const [brands, setBrands] = useState<IGetBrand[]>([]);
   const [isloading, setIsLoading] = useState<boolean>(true);
   const [skeltonCount, setSkeltonCount] = useState(15);
   const search = useRef('');
@@ -29,23 +28,20 @@ export default function CompaniesList() {
     try {
       const response = await GetBrands({ currentPage, per_page: 15, search: search.current });
       if (!response || !response.success) {
-        toast({
-          variant: 'destructive',
-          description: 'خطا در دریافت اطلاعات شرکت ها!',
-        });
+        toast.error('خطایی در دریافت برند ها پیش آمده !');
         return;
       }
 
-      const CompanyList: IGetCompanySchema[] = response.data.data;
+      const brandsList: IGetBrand[] = response.data.data;
 
       if (currentPage > 1) {
-        setCompanies((prev) => {
+        setBrands((prev) => {
           const existingIds = new Set(prev.map((c) => c.id));
-          return [...prev, ...CompanyList.filter((c) => !existingIds.has(c.id))];
+          return [...prev, ...brandsList.filter((c) => !existingIds.has(c.id))];
         });
-        setSkeltonCount(companies.length);
+        setSkeltonCount(brands.length);
       } else {
-        setCompanies(CompanyList);
+        setBrands(brandsList);
       }
 
       setLastPage(response.data.last_page);
@@ -89,7 +85,6 @@ export default function CompaniesList() {
   const handleSearch = (e: any) => {
     if (setTimer) clearTimeout(setTimer);
     setTimer = setTimeout(() => {
-      console.log(e.target.value);
       search.current = e.target.value;
       if (currentPage == 1) {
         fetchData(currentPage);
@@ -150,11 +145,11 @@ export default function CompaniesList() {
               <span className="sr-only">Loading...</span>
             </div>
           ))
-        ) : companies.length > 0 ? (
-          companies.map((company, key) => (
+        ) : brands.length > 0 ? (
+          brands.map((brand, key) => (
             <div
-              ref={companies.length === key + 1 ? loadMoreRef : undefined}
-              key={company.id}
+              ref={brands.length === key + 1 ? loadMoreRef : undefined}
+              key={brand.id}
               className={`mb-4 flex flex-col gap-5 rounded border p-4 dark:border-form-strokedark`}
             >
               <div className={`flex gap-2`}>
@@ -162,22 +157,23 @@ export default function CompaniesList() {
                   <div
                     className={`flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 text-slate-600`}
                   >
-                    {company.logo ? (
+                    {brand.logo ? (
                       <Image
-                        src={company.logo.url}
-                        alt={company.logo.alt || ''}
-                        title={company.logo.title || ''}
+                        className="block rounded-full object-cover object-center"
+                        src={brand.logo.url}
+                        alt={brand.logo.alt || ''}
+                        title={brand.logo.title || ''}
                         width={48}
                         height={48}
                       />
                     ) : (
-                      <p>{company.company_name?.charAt(0).toUpperCase()}</p>
+                      <p>{brand.name.charAt(0).toUpperCase()}</p>
                     )}
                   </div>
 
                   <div className={`grow`}>
-                    <div className={`mb-1`}>{`شرکت : ${company.company_name}`}</div>
-                    {`مدیر عامل : ${company.owner_name}`}
+                    <div className={`mb-1`}>{`برند : ${brand.name}`}</div>
+                    {`شرکت مادر : ${brand.company_name}`}
                   </div>
                 </div>
               </div>

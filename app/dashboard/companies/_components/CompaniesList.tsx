@@ -2,19 +2,21 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { GetCompanies } from '../_core/requests';
-import { IGetCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
-import { toast } from '@/hooks/use-toast';
+import { IGetCompany } from '@/app/dashboard/companies/_core/interfaces';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 import { Label } from '@radix-ui/react-dropdown-menu';
+import { toast } from 'sonner';
 
 export default function CompaniesList() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [lastPage, setLastPage] = useState<number>(1);
-  const [companies, setCompanies] = useState<IGetCompanySchema[]>([]);
+  const [companies, setCompanies] = useState<IGetCompany[]>([]);
+  // this renders skelton
   const [isloading, setIsLoading] = useState<boolean>(true);
+  // this should be intial count of the pagination 15 products = 15 skeltons
   const [skeltonCount, setSkeltonCount] = useState(15);
   const search = useRef('');
   const isFetching = useRef<boolean>(false);
@@ -29,14 +31,11 @@ export default function CompaniesList() {
     try {
       const response = await GetCompanies({ currentPage, per_page: 15, search: search.current });
       if (!response || !response.success) {
-        toast({
-          variant: 'destructive',
-          description: 'خطا در دریافت اطلاعات شرکت ها!',
-        });
+        toast.error('خطا در دریافت اطلاعات شرکت ها!');
         return;
       }
 
-      const CompanyList: IGetCompanySchema[] = response.data.data;
+      const CompanyList: IGetCompany[] = response.data.data;
 
       if (currentPage > 1) {
         setCompanies((prev) => {
@@ -141,10 +140,10 @@ export default function CompaniesList() {
                   <div className="mb-0 h-2.5 w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
                 </div>
               </div>
-              <div className="grow">
-                <div className="bg flex justify-between gap-2">
-                  <div className=" h-10 max-w-[480px] grow rounded bg-gray-200 dark:bg-gray-700"></div>
-                  <div className="h-10 max-w-[480px] grow rounded bg-gray-200 dark:bg-gray-700"></div>
+              <div className="grow w-full">
+                <div className="bg flex justify-between gap-2 w-full">
+                  <div className=" h-10 w-full grow rounded bg-gray-200 dark:bg-gray-700"></div>
+                  <div className="h-10 w-full grow rounded bg-gray-200 dark:bg-gray-700"></div>
                 </div>
               </div>
               <span className="sr-only">Loading...</span>
@@ -164,6 +163,7 @@ export default function CompaniesList() {
                   >
                     {company.logo ? (
                       <Image
+                        className="block rounded-full object-cover object-center"
                         src={company.logo.url}
                         alt={company.logo.alt || ''}
                         title={company.logo.title || ''}

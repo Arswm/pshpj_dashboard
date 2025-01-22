@@ -41,7 +41,7 @@ async function CompaniesPage() {
             <TabsContent value="company" className="mt-0">
               <CompaniesContent />
             </TabsContent>
-            <TabsContent value="brands">
+            <TabsContent value="brands" className="mt-0">
               <BrandsContent />
             </TabsContent>
           </div>
