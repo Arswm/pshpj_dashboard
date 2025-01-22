@@ -12,6 +12,9 @@ export default {
       container: {
         center: true,
       },
+      screens: {
+        xs: '380px',
+      },
       keyframes: {
         'caret-blink': {
           '0%,70%,100%': { opacity: '1' },
@@ -37,6 +40,7 @@ export default {
       },
       backgroundImage: {
         hero: "url('/images/home/hero.webp')",
+        'web-services': "url('/images/home/image-02-min.jpg')",
       },
     },
   },

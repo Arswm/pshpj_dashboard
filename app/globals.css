@@ -30,3 +30,9 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+@layer components {
+  .custom-container {
+    @apply w-full px-2 sm:px-4 max-w-6xl mx-auto;
+  }
+}
