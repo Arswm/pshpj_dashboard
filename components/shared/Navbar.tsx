@@ -76,10 +76,10 @@ export default function Navbar() {
               <Link href="/">وبلاگ</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/">ارتباط با ما</Link>
+              <Link href="/contact">ارتباط با ما</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/">درباره ما</Link>
+              <Link href="/about">درباره ما</Link>
             </li>
             <li className="hover:text-primary">
               <Link href="/">مشتریان ما</Link>

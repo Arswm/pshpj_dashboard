@@ -1,3 +1,4 @@
+'use client';
 import ENamadLogo from '@/public/images/footer/enamadLogo.png';
 import FooterLogo from '@/public/images/footer/logo-pshpj-white-min.png';
 import SamanehLogo from '@/public/images/footer/samandehi-logo.png';
