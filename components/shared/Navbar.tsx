@@ -5,7 +5,7 @@ import LogoImage from '@/public/images/navbar/logo-pshpj-min.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { IoChevronUp, IoClose } from 'react-icons/io5';
+import { IoChevronDown, IoClose } from 'react-icons/io5';
 import { RxHamburgerMenu } from 'react-icons/rx';
 
 const anotherSites = [
@@ -39,8 +39,8 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const [isOpemDropdown, setIsOpemDropdown] = useState(false);
   return (
-    <header className=" bg-white w-full border-b border-gray-50 shadow-sm">
-      <div className="container mx-auto p-4 xl:p-5 flex justify-between sm:justify-center items-center gap-4 lg:gap-14">
+    <header className=" bg-white w-full border-b border-gray-50 shadow-sm relative">
+      <div className="sm:container mx-auto p-4 flex justify-between sm:justify-center items-center gap-4 lg:gap-14">
         <div className="w-[125px]">
           <Image src={LogoImage} alt="Logo" />
         </div>
@@ -52,7 +52,7 @@ export default function Navbar() {
             <li className="hover:text-primary relative group">
               <div className="flex items-center gap-2 cursor-pointer">
                 <span> دیگر سایت ها</span>
-                <IoChevronUp className="size-4 transition-all group-hover:rotate-180" />
+                <IoChevronDown className="size-4 transition-all group-hover:rotate-180" />
               </div>
 
               <div className="absolute shadow shadow-primary bg-white p-2 rounded left-0 right-0 hidden group-hover:block">
@@ -76,10 +76,10 @@ export default function Navbar() {
               <Link href="/">وبلاگ</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/">ارتباط با ما</Link>
+              <Link href="/contact">ارتباط با ما</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/">درباره ما</Link>
+              <Link href="/about">درباره ما</Link>
             </li>
             <li className="hover:text-primary">
               <Link href="/">مشتریان ما</Link>
@@ -94,7 +94,13 @@ export default function Navbar() {
           021-71053977
         </Link>
 
-        <Button className="sm:hidden" onClick={() => setOpenMenu((prev) => !prev)}>
+        <Button
+          className="sm:hidden"
+          onClick={() => {
+            setOpenMenu((prev) => !prev);
+            setIsOpemDropdown(false);
+          }}
+        >
           {openMenu ? <IoClose className="!size-5" /> : <RxHamburgerMenu className="!size-5" />}
         </Button>
       </div>
@@ -102,8 +108,9 @@ export default function Navbar() {
       {/* mobile */}
       <div
         className={cn(
-          'sm:hidden transition-all absolute left-0 right-0 top-full duration-300 overflow-hidden bg-gray-50',
-          openMenu ? 'h-auto' : 'h-0',
+          'sm:hidden transition-all absolute left-0 right-0 top-full duration-300 overflow-hidden bg-gray-50 z-50',
+          openMenu ? 'h-60' : 'h-0',
+          openMenu && isOpemDropdown && 'h-[420px]',
         )}
       >
         <ul className="flex flex-col text-customGray text-sm">
@@ -118,7 +125,7 @@ export default function Navbar() {
               className="p-2 flex items-center gap-2 cursor-pointer"
             >
               <span> دیگر سایت ها</span>
-              <IoChevronUp
+              <IoChevronDown
                 className={cn('size-4 transition-all', isOpemDropdown ? 'rotate-180' : 'rotate-0')}
               />
             </div>

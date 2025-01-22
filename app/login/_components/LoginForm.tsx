@@ -39,7 +39,7 @@ function LoginForm({ setOtp }: LoginFormProps) {
         return;
       }
       if (!response.success) {
-        toast.error(response?.errors?.message?.[0])
+        toast.error(response?.errors?.message?.[0]);
         return;
       }
 

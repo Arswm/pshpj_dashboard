@@ -4,7 +4,7 @@ import { GrCertificate } from 'react-icons/gr';
 
 export default function Hero() {
   return (
-    <div className="h-[calc(100vh-84px)] xl:h-[calc(100vh-91px)] bg-hero bg-no-repeat bg-center bg-cover bg-blend-multiply bg-customBlue/70">
+    <div className="h-[calc(100vh-82px)] xl:h-[calc(100vh-75px)] bg-hero bg-no-repeat bg-center bg-cover bg-blend-multiply bg-customBlue/70">
       <div className="size-full flex flex-col items-center justify-center text-center text-white">
         <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl">پردیس شگفت پارس جنوب</h1>
         <div className="flex flex-col lg:flex-row items-center gap-8 mt-8 text-base lg:text-xl">
@@ -29,7 +29,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="mt-10 lg:mt-20 w-full md:w-auto">
-          <div className="flex items-center px-4 md:px-0 flex-col lg:flex-row gap-8">
+          <div className="flex items-center px-4 md:px-6 flex-col md:flex-row gap-8">
             <button className="h-12 w-full md:w-56  text-base rounded-sm border-2 bg-transparent hover:bg-white hover:text-black transition-all duration-300">
               دریافت اطلاعات شرکت
             </button>

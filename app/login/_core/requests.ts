@@ -19,7 +19,7 @@ export async function PostOtp(data: ILoginSchema): Promise<ILoginResponse> {
   });
 
   if (!response.ok) {
-    return  response.json()
+    return response.json();
   }
 
   return response.json();
