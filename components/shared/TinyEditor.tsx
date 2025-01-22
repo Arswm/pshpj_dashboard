@@ -24,7 +24,7 @@ const TinyEditor: React.ForwardRefRenderFunction<TinyMCEEditor | null, IProps> =
 
   return (
     <Editor
-      apiKey="70i0y3oqfbzvyf9e1fxvk823iga274uue3l6t7zicad90bbk"
+      apiKey="da5z3zyssg4f8g6k74ifr1xdq3m1e6pw0e1s116l5q8kumlr"
       id={name}
       textareaName={name}
       value={value || ''}

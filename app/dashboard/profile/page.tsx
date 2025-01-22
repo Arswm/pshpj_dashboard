@@ -1,11 +1,14 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { HiOutlineReceiptTax } from 'react-icons/hi';
+import { toast } from 'sonner';
+
 import {
   Building,
   Calendar,
   Camera,
-  DollarSign,
   Fingerprint,
   Mail,
   Mailbox,
@@ -17,10 +20,22 @@ import {
 import { Label } from '@/components/ui/label';
 
 function ProfilePage() {
+  const copyToClipboard = (text: string): void => {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        toast.success('کپی شد');
+        console.log(`Copied: ${text}`);
+      },
+      (err) => {
+        console.error('Failed to copy: ', err);
+      },
+    );
+  };
+
   return (
     <>
       <div className={'flex justify-center items-center mt-20'}>
-        <div className={'container max-w-4xl select-none'}>
+        <div className={'container max-w-4xl'}>
           <div className={'relative'}>
             <Image
               className={'w-full min-h-[240px] object-cover block'}
@@ -58,8 +73,18 @@ function ProfilePage() {
             </div>
           </div>
           <div className={'bg-white p-2 pt-20'}>
-            <p className={'text-center font-medium mb-2'}>محمد امین عابدی (مشتری)</p>
-            <p className={'text-center font-medium text-gray-500'}>شرکت پردیس شگفت پارس جنوب</p>
+            <p
+              onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+              className={'text-center font-medium mb-2 cursor-pointer'}
+            >
+              محمد امین عابدی (مشتری)
+            </p>
+            <p
+              onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+              className={'text-center font-medium text-gray-500'}
+            >
+              شرکت پردیس شگفت پارس جنوب
+            </p>
 
             <div className={'w-[80%] mx-auto pb-14'}>
               <div
@@ -68,15 +93,30 @@ function ProfilePage() {
                 }
               >
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
-                  <p className={'font-medium'}>1371/12/10</p>
+                  <p
+                    onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                    className={'font-medium'}
+                  >
+                    1371/12/10
+                  </p>
                   <Calendar size={16} className={'flex items-center'} />
                 </div>
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
-                  <p className={'font-medium'}>MR.ABEDI1993@GMAIL.COM</p>
+                  <p
+                    onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                    className={'font-medium'}
+                  >
+                    MR.ABEDI1993@GMAIL.COM
+                  </p>
                   <Mail size={16} className={'flex items-center'} />
                 </div>
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
-                  <p className={'font-medium'}>09109967686</p>
+                  <p
+                    onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                    className={'font-medium'}
+                  >
+                    09109967686
+                  </p>
                   <Phone size={16} className={'flex items-center'} />
                 </div>
               </div>
@@ -88,12 +128,20 @@ function ProfilePage() {
               >
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
                   <MapPinHouse size={16} className={'flex items-center'} />
-                  <p className={'font-medium'}>
+                  <p
+                    onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                    className={'font-medium'}
+                  >
                     البرز - شهرستان کرج - خیابان گلزار شرقی = پلاک ۹۳ - زنگ دوم
                   </p>
                 </div>
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
-                  <p className={'font-medium'}>0110320125</p>
+                  <p
+                    onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                    className={'font-medium'}
+                  >
+                    0110320125
+                  </p>
                   <Fingerprint size={16} className={'flex items-center'} />
                 </div>
               </div>
@@ -105,14 +153,27 @@ function ProfilePage() {
               >
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
                   <Mailbox size={16} className={'flex items-center'} />
-                  <p className={'font-medium'}>کد پستی : ۱۴۹۵۹۴۳۵۷۳</p>
+                  <p
+                    onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                    className={'font-medium'}
+                  >
+                    کد پستی : ۱۴۹۵۹۴۳۵۷۳
+                  </p>
                 </div>
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
                   <Building size={16} className={'flex items-center'} />
-                  <p className={'font-medium'}>شماره ثبت :‌۵۲۰۹۴۴</p>
+                  <p
+                    onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                    className={'font-medium'}
+                  >
+                    شماره ثبت :‌۵۲۰۹۴۴
+                  </p>
                 </div>
-                <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
-                  <DollarSign size={16} className={'flex items-center'} />
+                <div
+                  onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
+                  className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}
+                >
+                  <HiOutlineReceiptTax size={16} className={'flex items-center'} />
                   <p className={'font-medium'}>کد اقتصادی :‌۸۷۱۲۴۸۷۱۲۳۹۱</p>
                 </div>
               </div>

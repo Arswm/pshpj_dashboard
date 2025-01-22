@@ -11,9 +11,9 @@ async function CompaniesPage() {
   return (
     <>
       <Tabs dir="rtl" defaultValue="company" className="w-full grid gap-4">
-        <div className={'grid gap-4 grid-cols-2'}>
-          <div className="bg-white p-2 rounded-lg shadow h-full">
-            <TabsList className={'w-full min-h-14 gap-2'}>
+        <div className={'grid gap-8 md:grid-cols-2 p-4 md:p-0'}>
+          <div className=" h-full">
+            <TabsList className={'w-full min-h-14 gap-2 bg-white p-2 rounded-lg shadow'}>
               <TabsTrigger
                 className="w-full h-full data-[state=active]:text-white data-[state=active]:bg-primary"
                 value="company"
@@ -27,7 +27,7 @@ async function CompaniesPage() {
                 ثبت برند
               </TabsTrigger>
             </TabsList>
-            <div className="p-2">
+            <div>
               <TabsContent value="company">
                 <RegisterCompanyForm />
               </TabsContent>
@@ -37,8 +37,8 @@ async function CompaniesPage() {
             </div>
           </div>
 
-          <div className="bg-white p-2 rounded-lg shadow h-full">
-            <TabsContent value="company">
+          <div className=" h-full">
+            <TabsContent value="company" className="mt-0">
               <CompaniesContent />
             </TabsContent>
             <TabsContent value="brands">
