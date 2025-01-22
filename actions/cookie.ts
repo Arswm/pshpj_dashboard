@@ -19,7 +19,7 @@ export async function setTokenToCookie(token: string) {
 export async function getAccessTokenCookie() {
   try {
     // const token = (await cookies()).get('accessToken');
-    const token = `0c69d6be-d7cc-11ef-baf3-dc4a3e6bdc23|fPiygbQJ2mayvtLMQkK9T5NRO8zkYR5KzLlY5b5Gd6253cb5`;
+    const token = `0be32c34-d7f6-11ef-8aa3-dc4a3e6bdc23|8uv85dF8LRB4azTRQrFLgcdbxvRmSMzolPmKbKXk0bdc02ae`;
     if (!token) return;
 
     //return token.value;
