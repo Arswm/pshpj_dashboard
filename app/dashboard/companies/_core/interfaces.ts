@@ -1,3 +1,5 @@
+import { IMedia } from '@/interfaces/IMedia';
+
 export interface IPostCompanySchema {
   company_name: string;
   owner_name: string;
@@ -60,10 +62,10 @@ export interface IGetCompanySchema {
   card_owner_name?: string;
   created_at?: string;
   updated_at?: string;
-  logo?: string;
-  letterhead?: string;
-  seal?: string;
-  signature?: string;
+  logo?: IMedia;
+  letterhead?: IMedia;
+  seal?: IMedia;
+  signature?: IMedia;
 }
 
 export interface IGetCompanyProps {

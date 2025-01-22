@@ -10,8 +10,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import WordInput from '@/components/WordInput';
 import { Button } from '@/components/ui/button';
+import TinyEditor from '@/components/shared/TinyEditor';
 
 function AddBlog() {
+  const handleTinyMce = () => {
+    console.log(212123);
+  };
+
   return (
     <div className="container">
       <div className="flex gap-4 w-full">
@@ -48,8 +53,7 @@ function AddBlog() {
               </TabsList>
               <TabsContent className={'mt-0'} value="content">
                 <div className={'border-b border-r border-l space-y-4 pt-4 p-4 bg-white'}>
-                  {/*rich text editor section */}
-                  <section className={'bg-tabs-gray rounded p-2'}>text editor</section>
+                  <TinyEditor name="content" onChange={handleTinyMce} />
                 </div>
               </TabsContent>
               <TabsContent className={'mt-0'} value="seo">
@@ -191,7 +195,7 @@ function AddBlog() {
                           </div>
                           <div className={'w-3/4'}>
                             <Image
-                              className={'object-cover w-full h-[300px] ms-auto rounded-lg'}
+                              className={'object-cover w-full ms-auto rounded-lg'}
                               src={'/images/blog-page/blog-images-placeholder.png'}
                               alt={''}
                               width={600}
@@ -245,7 +249,7 @@ function AddBlog() {
                           </div>
                           <div className={'w-3/4'}>
                             <Image
-                              className={'object-cover w-full h-[300px] ms-auto rounded-lg'}
+                              className={'object-cover w-full  ms-auto rounded-lg'}
                               src={'/images/blog-page/blog-images-placeholder.png'}
                               alt={''}
                               width={600}

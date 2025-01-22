@@ -11,6 +11,13 @@ body {
     --radius: 0.5rem;
   }
 }
+.toaster {
+  font-family: 'yekanBakh', sans-serif !important;
+  background-color: aqua !important;
+}
+.font-primary {
+  font-family: 'yekanBakh', sans-serif !important;
+}
 
 .tabs-trigger:first-child {
   @apply rounded-tr;

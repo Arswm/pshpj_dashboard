@@ -93,7 +93,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         >
           {sidebarOpen ? <CircleX /> : <AlignJustify />}
         </button>
-        <div className="md:p-4 bg-[#f1f5f9] min-h-[calc(92dvh)]">{children}</div>
+        <div className="md:p-12 bg-[#f1f5f9] min-h-[calc(92dvh)]">{children}</div>
       </main>
     </div>
   );

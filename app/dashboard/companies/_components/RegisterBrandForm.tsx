@@ -82,7 +82,8 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
   };
 
   return (
-    <div className={'p-2'}>
+    <>
+    <div className={'bg-white shadow rounded-lg w-full mt-6 p-4'}>
       {/* onSubmit={form.handleSubmit(onSubmit)} */}
       <form onSubmit={handleSubmit(onSubmit)} className={'w-full'}>
         <div className={'grid gap-4 grid-cols-2'}>
@@ -257,5 +258,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
         </Button>
       </form>
     </div>
+    </>
+    
   );
 }

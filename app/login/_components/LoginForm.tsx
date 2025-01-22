@@ -10,7 +10,7 @@ import { FieldValues } from 'react-hook-form';
 import { ILoginSchema } from '@/app/login/_core/interfaces';
 import { useForm } from 'react-hook-form';
 import { PostOtp } from '../_core/requests';
-import { toast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 
 interface LoginFormProps {
   setOtp: (value: boolean) => void;
@@ -35,13 +35,11 @@ function LoginForm({ setOtp }: LoginFormProps) {
     try {
       const response = await PostOtp(formattedData);
 
-      if (!response) return;
-
+      if (!response) {
+        return;
+      }
       if (!response.success) {
-        toast({
-          variant: 'destructive',
-          description: response.message?.message[0],
-        });
+        toast.error(response?.errors?.message?.[0])
         return;
       }
 

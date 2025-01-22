@@ -19,7 +19,7 @@ export async function PostOtp(data: ILoginSchema): Promise<ILoginResponse> {
   });
 
   if (!response.ok) {
-    throw new Error(`Server error: ${response.status} ${response.statusText}`);
+    return  response.json()
   }
 
   return response.json();
