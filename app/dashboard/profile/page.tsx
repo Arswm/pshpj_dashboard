@@ -23,7 +23,12 @@ function ProfilePage() {
   const copyToClipboard = (text: string): void => {
     navigator.clipboard.writeText(text).then(
       () => {
-        toast.success('کپی شد');
+        toast.success('کپی شد', {
+          action: {
+            label: 'باشه',
+            onClick: () => console.log('باشه'),
+          },
+        });
         console.log(`Copied: ${text}`);
       },
       (err) => {
@@ -81,7 +86,7 @@ function ProfilePage() {
             </p>
             <p
               onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-              className={'text-center font-medium text-gray-500'}
+              className={'text-center font-medium text-gray-500 cursor-pointer'}
             >
               شرکت پردیس شگفت پارس جنوب
             </p>
@@ -95,7 +100,7 @@ function ProfilePage() {
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
                   <p
                     onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                    className={'font-medium'}
+                    className={'font-medium cursor-pointer'}
                   >
                     1371/12/10
                   </p>
@@ -104,7 +109,7 @@ function ProfilePage() {
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
                   <p
                     onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                    className={'font-medium'}
+                    className={'font-medium cursor-pointer'}
                   >
                     MR.ABEDI1993@GMAIL.COM
                   </p>
@@ -113,7 +118,7 @@ function ProfilePage() {
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
                   <p
                     onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                    className={'font-medium'}
+                    className={'font-medium cursor-pointer'}
                   >
                     09109967686
                   </p>
@@ -130,7 +135,7 @@ function ProfilePage() {
                   <MapPinHouse size={16} className={'flex items-center'} />
                   <p
                     onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                    className={'font-medium'}
+                    className={'font-medium cursor-pointer'}
                   >
                     البرز - شهرستان کرج - خیابان گلزار شرقی = پلاک ۹۳ - زنگ دوم
                   </p>
@@ -138,7 +143,7 @@ function ProfilePage() {
                 <div className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}>
                   <p
                     onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                    className={'font-medium'}
+                    className={'font-medium cursor-pointer'}
                   >
                     0110320125
                   </p>
@@ -155,7 +160,7 @@ function ProfilePage() {
                   <Mailbox size={16} className={'flex items-center'} />
                   <p
                     onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                    className={'font-medium'}
+                    className={'font-medium cursor-pointer'}
                   >
                     کد پستی : ۱۴۹۵۹۴۳۵۷۳
                   </p>
@@ -164,14 +169,14 @@ function ProfilePage() {
                   <Building size={16} className={'flex items-center'} />
                   <p
                     onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                    className={'font-medium'}
+                    className={'font-medium cursor-pointer'}
                   >
                     شماره ثبت :‌۵۲۰۹۴۴
                   </p>
                 </div>
                 <div
                   onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                  className={'border-e p-2 inline-flex justify-center gap-2 items-center grow'}
+                  className={'border-e p-2 inline-flex justify-center gap-2 items-center grow cursor-pointer'}
                 >
                   <HiOutlineReceiptTax size={16} className={'flex items-center'} />
                   <p className={'font-medium'}>کد اقتصادی :‌۸۷۱۲۴۸۷۱۲۳۹۱</p>

@@ -28,7 +28,12 @@ export default function BrandsList() {
     try {
       const response = await GetBrands({ currentPage, per_page: 15, search: search.current });
       if (!response || !response.success) {
-        toast.error('خطایی در دریافت برند ها پیش آمده !');
+        toast.error('خطایی در دریافت برند ها به وجود آمده', {
+          action: {
+            label: 'باشه',
+            onClick: () => console.log('باشه'),
+          },
+        });
         return;
       }
 

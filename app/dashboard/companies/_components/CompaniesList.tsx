@@ -31,7 +31,13 @@ export default function CompaniesList() {
     try {
       const response = await GetCompanies({ currentPage, per_page: 15, search: search.current });
       if (!response || !response.success) {
-        toast.error('خطا در دریافت اطلاعات شرکت ها!');
+        toast.error('خطایی در دریافت شرکت ها به وجود آمده', {
+          action: {
+            label: 'باشه',
+            onClick: () => console.log('باشه'),
+          },
+        });
+
         return;
       }
 
