@@ -25,7 +25,7 @@ export default function page() {
               <Image
                 src={ContactBackground}
                 alt=""
-                className="w-full h-96 object-cover md:h-full opacity-20"
+                className="w-full h-96 object-cover md:h-full opacity-10"
               />
               <div className="absolute inset-0 size-full">
                 <CardHeader>
@@ -77,19 +77,34 @@ export default function page() {
                   <CardTitle className="text-xl font-medium">به ما پیام بفرستید</CardTitle>
                   <CardDescription>
                     <div className="flex flex-wrap items-center justify-center gap-2 text-white">
-                      <Link className="block p-2 bg-[#4e69a2] rounded" href="#">
+                      <Link
+                        className="block p-2 bg-[#4e69a2] rounded hover:scale-110 transition-transform duration-300"
+                        href="#"
+                      >
                         <FaFacebook className="size-6 sm:size-5" />
                       </Link>
-                      <Link className="block p-2 bg-[#32a9f2] rounded" href="#">
+                      <Link
+                        className="block p-2 bg-[#32a9f2] rounded hover:scale-110 transition-transform duration-300"
+                        href="#"
+                      >
                         <FaTwitter className="size-6 sm:size-5" />
                       </Link>
-                      <Link className="block p-2 bg-[#d13534] rounded" href="#">
+                      <Link
+                        className="block p-2 bg-[#d13534] rounded hover:scale-110 transition-transform duration-300"
+                        href="#"
+                      >
                         <FaYoutube className="size-6 sm:size-5" />
                       </Link>
-                      <Link className="block p-2 bg-[#3ad774] rounded" href="#">
+                      <Link
+                        className="block p-2 bg-[#3ad774] rounded hover:scale-110 transition-transform duration-300"
+                        href="#"
+                      >
                         <FaWhatsapp className="size-6 sm:size-5" />
                       </Link>
-                      <Link className="block p-2 bg-[#40ade2] rounded" href="#">
+                      <Link
+                        className="block p-2 bg-[#40ade2] rounded hover:scale-110 transition-transform duration-300"
+                        href="#"
+                      >
                         <FaTelegram className="size-6 sm:size-5" />
                       </Link>
                     </div>

@@ -40,7 +40,7 @@ export default function Navbar() {
   const [isOpemDropdown, setIsOpemDropdown] = useState(false);
   return (
     <header className=" bg-white w-full border-b border-gray-50 shadow-sm relative">
-      <div className="sm:container mx-auto p-4 flex justify-between sm:justify-center items-center gap-4 lg:gap-14">
+      <div className="sm:max-w-6xl mx-auto p-4 flex justify-between sm:justify-center items-center gap-4 lg:gap-14">
         <div className="w-[125px]">
           <Image src={LogoImage} alt="Logo" />
         </div>
@@ -55,7 +55,7 @@ export default function Navbar() {
                 <IoChevronDown className="size-4 transition-all group-hover:rotate-180" />
               </div>
 
-              <div className="absolute shadow shadow-primary bg-white p-2 rounded left-0 right-0 hidden group-hover:block">
+              <div className="absolute shadow shadow-primary bg-white p-2 rounded left-0 right-0 hidden group-hover:block z-50">
                 <div className="h-full w-full flex flex-col items-center justify-center">
                   <ul>
                     {anotherSites.map((item) => (
@@ -73,7 +73,7 @@ export default function Navbar() {
               </div>
             </li>
             <li className="hover:text-primary">
-              <Link href="/">وبلاگ</Link>
+              <Link href="/blog">وبلاگ</Link>
             </li>
             <li className="hover:text-primary">
               <Link href="/contact">ارتباط با ما</Link>
@@ -82,7 +82,7 @@ export default function Navbar() {
               <Link href="/about">درباره ما</Link>
             </li>
             <li className="hover:text-primary">
-              <Link href="/">مشتریان ما</Link>
+              <Link href="#">مشتریان ما</Link>
             </li>
           </ul>
         </nav>
@@ -119,7 +119,7 @@ export default function Navbar() {
               خانه
             </Link>
           </li>
-          <li className="hover:text-primary group">
+          <li className="hover:text-primary group z-50">
             <div
               onClick={() => setIsOpemDropdown((prev) => !prev)}
               className="p-2 flex items-center gap-2 cursor-pointer"
@@ -184,22 +184,22 @@ export default function Navbar() {
             )}
           </li>
           <li>
-            <Link className="p-2 block hover:text-primary" href="/">
+            <Link className="p-2 block hover:text-primary" href="/blog">
               وبلاگ
             </Link>
           </li>
           <li>
-            <Link className="p-2 block hover:text-primary" href="/">
+            <Link className="p-2 block hover:text-primary" href="/contact">
               ارتباط با ما
             </Link>
           </li>
           <li>
-            <Link className="p-2 block hover:text-primary" href="/">
+            <Link className="p-2 block hover:text-primary" href="/about">
               درباره ما
             </Link>
           </li>
           <li>
-            <Link className="p-2 block hover:text-primary" href="/">
+            <Link className="p-2 block hover:text-primary" href="#">
               مشتریان ما
             </Link>
           </li>

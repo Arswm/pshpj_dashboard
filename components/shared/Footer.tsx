@@ -32,6 +32,7 @@ export default function Footer() {
             opts={{
               align: 'start',
               loop: true,
+              direction: 'ltr',
             }}
           >
             <CarouselContent>

@@ -1,5 +1,4 @@
 import AboutCompany from './_components/AboutCompany';
-import Banner from './_components/AboutCompany';
 import Hero from './_components/Hero';
 import Services from './_components/Services';
 
