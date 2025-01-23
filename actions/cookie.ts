@@ -18,12 +18,11 @@ export async function setTokenToCookie(token: string) {
 
 export async function getAccessTokenCookie() {
   try {
-    // const token = (await cookies()).get('accessToken');
-    const token = `0be32c34-d7f6-11ef-8aa3-dc4a3e6bdc23|8uv85dF8LRB4azTRQrFLgcdbxvRmSMzolPmKbKXk0bdc02ae`;
+    const token = (await cookies()).get('accessToken');
+    
     if (!token) return;
 
-    //return token.value;
-    return token;
+    return token.value;
   } catch (error) {
     console.log(error);
   }
