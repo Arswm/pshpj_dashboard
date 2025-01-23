@@ -47,7 +47,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${yekanBakh.variable} antialiased`}>
         <main>{children}</main>
         <div className="font-primary">
-          <Toaster dir="rtl" visibleToasts={20} richColors closeButton duration={40000} className="font-primary" />
+          <Toaster
+            dir="rtl"
+            visibleToasts={20}
+            richColors
+            closeButton
+            duration={40000}
+            className="font-primary"
+          />
         </div>
       </body>
     </html>

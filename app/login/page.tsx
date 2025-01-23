@@ -21,7 +21,6 @@ function LoginPage() {
             </Link>
             پردیس شگفت پارس جنوب موافقت کرده اید
           </p>
-          
         </div>
       </div>
     </div>

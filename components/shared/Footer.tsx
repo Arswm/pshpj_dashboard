@@ -188,10 +188,18 @@ export default function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-x-6">
-            <Link className="bg-white grid place-items-center max-h-[170px]" href="#" target="_blank">
+            <Link
+              className="bg-white grid place-items-center max-h-[170px]"
+              href="#"
+              target="_blank"
+            >
               <Image src={ENamadLogo} alt="Enamad" />
             </Link>
-            <Link className="bg-white grid place-items-center max-h-[170px]" href="#" target="_blank">
+            <Link
+              className="bg-white grid place-items-center max-h-[170px]"
+              href="#"
+              target="_blank"
+            >
               <Image src={SamanehLogo} alt="Samaneh" />
             </Link>
           </div>
