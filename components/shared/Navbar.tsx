@@ -55,7 +55,7 @@ export default function Navbar() {
                 <IoChevronDown className="size-4 transition-all group-hover:rotate-180" />
               </div>
 
-              <div className="absolute shadow shadow-primary bg-white p-2 rounded left-0 right-0 hidden group-hover:block">
+              <div className="absolute shadow shadow-primary bg-white p-2 rounded left-0 right-0 hidden group-hover:block z-50">
                 <div className="h-full w-full flex flex-col items-center justify-center">
                   <ul>
                     {anotherSites.map((item) => (
@@ -119,7 +119,7 @@ export default function Navbar() {
               خانه
             </Link>
           </li>
-          <li className="hover:text-primary group">
+          <li className="hover:text-primary group z-50">
             <div
               onClick={() => setIsOpemDropdown((prev) => !prev)}
               className="p-2 flex items-center gap-2 cursor-pointer"

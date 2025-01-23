@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 
-import OtpForm from '@/app/login/_components/OtpForm';
+import OtpForm from '@/app/login/_components/otpForm';
 import LoginForm from '@/app/login/_components/LoginForm';
 import Link from 'next/link';
 

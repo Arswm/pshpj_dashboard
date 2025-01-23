@@ -139,36 +139,16 @@ export default function Services() {
     <div>
       {/* brands mobile */}
       <div className="px-2 grid grid-cols-2 justify-items-center gap-4 xs:translate-y-20 md:hidden z-50 relative">
-        <div className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white">
-          <Link href="#">
-            <Image src={Plusing} alt="Plusing" />
-          </Link>
-        </div>
-        <div className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white">
-          <Link href="#">
-            <Image src={Naring} alt="Naring" />
-          </Link>
-        </div>
-        <div className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white">
-          <Link href="#">
-            <Image src={YekPayamak} alt="YekPayamak" />
-          </Link>
-        </div>
-        <div className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white">
-          <Link href="#">
-            <Image src={GraficDing} alt="GraficDing" />
-          </Link>
-        </div>
-        <div className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white">
-          <Link href="#">
-            <Image src={Jabama} alt="Jabama" />
-          </Link>
-        </div>
-        <div className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white">
-          <Link href="#">
-            <Image src={Chabzi} alt="Chabzi" />
-          </Link>
-        </div>
+        {sites.map((item) => (
+          <div
+            key={item.alt}
+            className="p-10 md:p-5 shadow-md rounded-sm border border-gray-50 bg-white"
+          >
+            <Link href={item.href}>
+              <Image src={item.image} alt={item.alt} />
+            </Link>
+          </div>
+        ))}
       </div>
 
       {/* main banner */}
