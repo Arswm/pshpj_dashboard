@@ -21,11 +21,11 @@ export default function Footer() {
       <Image
         src={FooterBackgroundImage}
         alt="footer background"
-        className="h-[1050px] md:h-[820px] lg:h-[560px] block w-full object-cover object-center"
+        className="min-h-[1050px] md:min-h-[420px] lg:h-[560px] block w-full object-cover object-center"
       />
 
       {/* content */}
-      <div className="absolute inset-0 py-16 lg:py-10 px-6 space-y-10   max-w-6xl h-full mx-auto z-50">
+      <div className="absolute inset-0 py-16 lg:py-10 px-6 space-y-10 max-w-6xl mx-auto z-50">
         {/* Carousel */}
         <div className="px-8 w-full" dir="ltr">
           <Carousel
@@ -188,10 +188,10 @@ export default function Footer() {
           </div>
 
           <div className="grid grid-cols-2 gap-x-6">
-            <Link className="bg-white grid place-items-center h-[170px]" href="#" target="_blank">
+            <Link className="bg-white grid place-items-center max-h-[170px]" href="#" target="_blank">
               <Image src={ENamadLogo} alt="Enamad" />
             </Link>
-            <Link className="bg-white grid place-items-center h-[170px]" href="#" target="_blank">
+            <Link className="bg-white grid place-items-center max-h-[170px]" href="#" target="_blank">
               <Image src={SamanehLogo} alt="Samaneh" />
             </Link>
           </div>

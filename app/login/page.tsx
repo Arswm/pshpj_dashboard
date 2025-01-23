@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 
-import OtpForm from '@/app/login/_components/otpForm';
+import OtpForm from '@/app/login/_components/OtpForm';
 import LoginForm from '@/app/login/_components/LoginForm';
 import Link from 'next/link';
 
@@ -15,13 +15,13 @@ function LoginPage() {
           {otp ? <OtpForm /> : <LoginForm setOtp={setOtp} />}
 
           <p className={'text-xs mt-4'}>
-            با ورود به اتوماسیون شما با{' '}
+            با ورود به اتوماسیون شما با
             <Link href="#" className={'underline'}>
               قوانین شرکت
-            </Link>{' '}
+            </Link>
             پردیس شگفت پارس جنوب موافقت کرده اید
           </p>
-          <p></p>
+          
         </div>
       </div>
     </div>
