@@ -176,7 +176,9 @@ function ProfilePage() {
                 </div>
                 <div
                   onClick={(e) => copyToClipboard(e.currentTarget.innerText)}
-                  className={'border-e p-2 inline-flex justify-center gap-2 items-center grow cursor-pointer'}
+                  className={
+                    'border-e p-2 inline-flex justify-center gap-2 items-center grow cursor-pointer'
+                  }
                 >
                   <HiOutlineReceiptTax size={16} className={'flex items-center'} />
                   <p className={'font-medium'}>کد اقتصادی :‌۸۷۱۲۴۸۷۱۲۳۹۱</p>
