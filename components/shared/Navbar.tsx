@@ -198,11 +198,6 @@ export default function Navbar() {
               درباره ما
             </Link>
           </li>
-          <li>
-            <Link className="p-2 block hover:text-primary" href="#">
-              مشتریان ما
-            </Link>
-          </li>
         </ul>
       </div>
     </header>

@@ -17,6 +17,7 @@ function OtpForm() {
 
   // this will send otp code to the verify-code  endpoint
   async function handleOtpChange(data: string) {
+
     const formattedData = {
       code: data,
       type: 'login',
