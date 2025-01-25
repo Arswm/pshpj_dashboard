@@ -57,7 +57,7 @@ function AddBlog() {
                 </div>
               </TabsContent>
               <TabsContent className={'mt-0'} value="seo">
-                {/*seo title seo discription canonical and seo general setting*/}
+                {/*seo title seo description canonical and seo general setting*/}
                 <div className={'border-b border-r border-l space-y-4 pt-4 p-4 bg-white'}>
                   <section className={'bg-tabs-gray rounded px-8 p-2'}>
                     {/*dont repeat yourself*/}
