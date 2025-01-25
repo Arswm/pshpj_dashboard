@@ -98,4 +98,26 @@ export type IPostBrandResponse =
     }
   | undefined;
 
+export type IBrandDetail = {
+  id: string;
+  name: string;
+  en_name: string;
+  website: string;
+  email: string;
+  telephone: string;
+  phone: string;
+  card_number: string;
+  card_owner_name: string;
+  ir_sheba: string;
+  address: string;
+  access_token: string;
+  payment_link: string;
+  logo: string;
+};
 
+export type responseType<T> =
+  | {
+      success: boolean;
+      data: T;
+    }
+  | undefined;

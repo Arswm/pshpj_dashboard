@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 import { Label } from '@radix-ui/react-dropdown-menu';
 import { IGetBrand } from '../_core/interfaces';
+import { useRouter } from 'next/navigation';
 
 export default function BrandsList() {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -19,6 +20,7 @@ export default function BrandsList() {
   const isFetching = useRef<boolean>(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
 
   const fetchData = async (currentPage: number) => {
     setIsLoading(true);
@@ -99,6 +101,10 @@ export default function BrandsList() {
   };
 
   const loadingSkelton = new Array(skeltonCount).fill(null);
+
+  const handleGoToBrandDetail = (id: string) => {
+    router.push(`/dashboard/companies/brand/${id}`);
+  };
 
   return (
     <>
@@ -189,6 +195,7 @@ export default function BrandsList() {
                   ویرایش اطلاعات
                 </Button>
                 <Button
+                  onClick={handleGoToBrandDetail.bind('', brand.id)}
                   className={`min-w-1/2 mb-4 w-1/2 rounded bg-gray-200 px-4 py-2.5 text-slate-600 transition-all hover:border-transparent hover:bg-primary hover:text-white dark:bg-slate-500 dark:text-gray-2 dark:hover:bg-primary sm:mb-0 sm:w-auto`}
                 >
                   مشاهده اطلاعات
