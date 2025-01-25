@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 import { Label } from '@radix-ui/react-dropdown-menu';
 import { toast } from 'sonner';
+import Link from 'next/link';
 
 export default function CompaniesList() {
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -193,11 +194,13 @@ export default function CompaniesList() {
                 >
                   ویرایش اطلاعات
                 </Button>
-                <Button
-                  className={`min-w-1/2 mb-4 w-1/2 rounded bg-gray-200 px-4 py-2.5 text-slate-600 transition-all hover:border-transparent hover:bg-primary hover:text-white dark:bg-slate-500 dark:text-gray-2 dark:hover:bg-primary sm:mb-0 sm:w-auto`}
-                >
-                  مشاهده اطلاعات
-                </Button>
+                <Link className="block w-full" href={`/dashboard/companies/${company.id}`}>
+                  <Button
+                    className={`!w-full mb-4 rounded bg-gray-200 px-4 py-2.5 text-slate-600 transition-all hover:border-transparent hover:bg-primary hover:text-white dark:bg-slate-500 dark:text-gray-2 dark:hover:bg-primary sm:mb-0 sm:w-auto`}
+                  >
+                    مشاهده اطلاعات
+                  </Button>
+                </Link>
               </div>
             </div>
           ))
