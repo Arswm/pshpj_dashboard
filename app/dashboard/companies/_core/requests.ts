@@ -109,3 +109,24 @@ export async function GetDynamicList(): Promise<IDynamicListResponse> {
     console.log(error);
   }
 }
+
+export async function GetFullCompanyDetail(id: string) {
+  const accessToken = await getAccessTokenCookie();
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/panel/companies/${id}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('error in fetching GetFullCompanyDetail');
+    }
+
+    return await response.json();
+  } catch (error: unknown) {
+    console.log(error);
+  }
+}
