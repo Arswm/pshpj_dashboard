@@ -23,6 +23,7 @@ export async function getAccessTokenCookie() {
     if (!token) return;
 
     return token.value;
+
   } catch (error) {
     console.log(error);
   }

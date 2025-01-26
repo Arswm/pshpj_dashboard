@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { CalendarDays, ChevronDown, Clock, Eye, Newspaper, Pen, PlusCircle } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
-import WordInput from '@/components/WordInput';
+import WordInput from '@/components/shared/WordInput';
 import { Button } from '@/components/ui/button';
 import TinyEditor from '@/components/shared/TinyEditor';
 
@@ -441,16 +441,16 @@ function AddBlog() {
           </form>
         </div>
         <div className={'w-1/4 rounded-lg p-2 '}>
-          <div className={'flex justify-between gap-4 mb-8'}>
-            <Button variant={'primary'} className={'w-1/3 min-h-11'}>
+          <div className={'flex justify-between gap-2 mb-8'}>
+            <Button variant={'primary'} className={'w-1/3 min-h-11 text-xs'}>
               زبان
               <ChevronDown />
             </Button>
-            <Button variant={'primary'} className={'w-1/3 min-h-11'}>
-              <Eye />
+            <Button variant={'primary'} className={'w-1/3 min-h-11 text-xs'}>
               پیش نمایش
+              <Eye />
             </Button>
-            <Button variant={'primary'} className={'w-1/3 min-h-11'}>
+            <Button variant={'primary'} className={'w-1/3 min-h-11 text-xs'}>
               وضعیت
               <ChevronDown />
             </Button>

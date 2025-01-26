@@ -15,7 +15,7 @@ import { toast } from 'sonner';
 function OtpForm() {
   const router = useRouter();
 
-  // this will send otp code to the verify-code  endpoint
+  // this will send otp code to the verify code  endpoint
   async function handleOtpChange(data: string) {
     const formattedData = {
       code: data,
