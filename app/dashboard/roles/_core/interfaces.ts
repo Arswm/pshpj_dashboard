@@ -23,6 +23,7 @@ export type IGetRolesResponse =
   | undefined;
 
 export type IGetRole = {
+  en : string
   id: string;
   name: string;
 };
