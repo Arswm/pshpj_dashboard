@@ -1,6 +1,6 @@
 'use client'; // Ensures interactive logic for the sidebar is client-rendered
 
-import DashboardSidebar from '@/components/DashboardSidebar';
+import DashboardSidebar from '@/components/shared/DashboardSidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AlignJustify, CircleX, ListCheck, LogOut, MessageCircle, User } from 'lucide-react';
 import Link from 'next/link';

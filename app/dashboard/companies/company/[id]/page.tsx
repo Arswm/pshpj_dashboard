@@ -1,25 +1,24 @@
 import React from 'react';
-import { GetFullCompanyDetail } from '../_core/requests';
+import { GetFullCompanyDetail } from '../../_core/requests';
 import { toast } from 'sonner';
+import { IGetCompany } from '../../_core/interfaces';
 
 interface SingleCompanyPageProps {
   params: { id: string };
 }
 
 export default async function page({ params }: SingleCompanyPageProps) {
-
-    let data = {}
+  let data: IGetCompany | undefined;
   const { id } = await params;
   try {
     const response = await GetFullCompanyDetail(id);
 
-    if(!response.success){
-        toast(response.message)
+    if (!response.success) {
+      toast(response.message);
     }
 
-    console.log(response)
-    data = response.data
-
+    data = response.data;
+    console.log(data);
   } catch (error: unknown) {
     console.log(error);
   }
