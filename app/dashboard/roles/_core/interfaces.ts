@@ -18,7 +18,7 @@ export type IGetRolesResponse =
   | {
       success: boolean;
       message: string;
-      data: IGetRole[];
+      data?: IGetRole[];
     }
   | undefined;
 
@@ -26,4 +26,9 @@ export type IGetRole = {
   en : string
   id: string;
   name: string;
+};
+
+export type IRegisterRole = {
+  name: string;
+  permissions: string[];
 };

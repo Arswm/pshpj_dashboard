@@ -10,7 +10,7 @@ interface IProps {
 
 const ShowRoles = ({ roles }: IProps) => {
   return (
-    <div className="bg-white shadow p-4 rounded-lg w-4/12 overflow-y-scroll h-[1176px] self-end">
+    <div className="bg-white shadow p-4 rounded-lg w-4/12 overflow-y-scroll self-center">
       {roles.map((role) => (
         <div
           key={role.id}
