@@ -47,7 +47,6 @@ export default function RegisterRole({ permissions, roles }: IProps) {
     formState: { errors },
   } = useForm();
   const onSubmit = async (data: FieldValues) => {
-    
     const payload: IRegisterRole = { name: data.name, permissions: checkedList };
 
     if (allRoles && allRoles.includes(data.name)) {

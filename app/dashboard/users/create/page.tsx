@@ -5,7 +5,6 @@ import { toast } from 'sonner';
 import { GetUserRoles } from './_core/requests';
 import CreateUserForm from './_components/CreateUser';
 
-
 export default async function UserPage() {
   async function getRoles() {
     try {

@@ -97,5 +97,3 @@ export type IPostBrandResponse =
       };
     }
   | undefined;
-
-

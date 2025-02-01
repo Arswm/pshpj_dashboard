@@ -15,7 +15,7 @@
 //   return (
 //     <div className="flex gap-2">
 //       <div className="bg-white shadow rounded-lg p-4 w-full">
-        
+
 //         <form>
 //           <Tabs
 //             onValueChange={handleSeperator}
@@ -94,7 +94,7 @@
 //         </form>
 
 //         {/* <form className="mt-4">
-          
+
 //         </form> */}
 //       </div>
 //     </div>

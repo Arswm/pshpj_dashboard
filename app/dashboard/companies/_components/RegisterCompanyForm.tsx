@@ -151,12 +151,7 @@ export default function RegisterCompanyForm() {
               name="postal_code"
             />
 
-            <TextInput
-              register={register}
-              label="وبسایت"
-              error={errors.website}
-              name="website"
-            />
+            <TextInput register={register} label="وبسایت" error={errors.website} name="website" />
 
             <TextInput
               register={register}
@@ -179,12 +174,7 @@ export default function RegisterCompanyForm() {
               name="card_number"
             />
 
-            <TextInput
-              register={register}
-              label="درصد مالیات"
-              error={errors.tax}
-              name="tax"
-            />
+            <TextInput register={register} label="درصد مالیات" error={errors.tax} name="tax" />
 
             <div className="col-span-2">
               <TextInput

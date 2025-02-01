@@ -146,12 +146,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
               name="email"
             />
 
-            <TextInput
-              register={register}
-              label="ایمیل اصلی"
-              error={errors.email}
-              name="email"
-            />
+            <TextInput register={register} label="ایمیل اصلی" error={errors.email} name="email" />
 
             <TextInput
               register={register}
