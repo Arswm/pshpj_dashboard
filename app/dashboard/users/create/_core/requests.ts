@@ -15,14 +15,18 @@ export async function GetUserRoles(): Promise<IGetUserRolesRepsonse | undefined>
     if (!response.ok) {
       throw new Error('error in GetPermission Fetch');
     }
- 
+
     return await response.json();
   } catch (error: unknown) {
     console.log(error);
   }
 }
 
-export async function PostUser({ data }: { data: FormData}): Promise<IPosTUserRolesRepsonse | undefined> {
+export async function PostUser({
+  data,
+}: {
+  data: FormData;
+}): Promise<IPosTUserRolesRepsonse | undefined> {
   const accessToken = await getAccessTokenCookie();
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/panel/users`, {
@@ -31,7 +35,7 @@ export async function PostUser({ data }: { data: FormData}): Promise<IPosTUserRo
         Accept: 'application/json',
         Authorization: `Bearer ${accessToken}`,
       },
-      body: data
+      body: data,
     });
 
     return await response.json();

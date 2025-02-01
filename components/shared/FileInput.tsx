@@ -1,6 +1,11 @@
 import { cn } from '@/lib/utils';
 import { HTMLProps } from 'react';
-import type { FieldError, FieldErrorsImpl, RegisterOptions, UseFormRegister } from 'react-hook-form';
+import type {
+  FieldError,
+  FieldErrorsImpl,
+  RegisterOptions,
+  UseFormRegister,
+} from 'react-hook-form';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';

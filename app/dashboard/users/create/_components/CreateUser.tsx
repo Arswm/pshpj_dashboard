@@ -283,8 +283,8 @@ export default function CreateUserForm({ roles }: IProps) {
               <SelectValue placeholder="دارد" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value='1'>دارد</SelectItem>
-              <SelectItem value='0'>ندارد</SelectItem>
+              <SelectItem value="1">دارد</SelectItem>
+              <SelectItem value="0">ندارد</SelectItem>
             </SelectContent>
           </Select>
         </div>
