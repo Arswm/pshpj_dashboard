@@ -26,6 +26,7 @@ export type IGetRole = {
   en : string
   id: string;
   name: string;
+  permissions: string[];
 };
 
 export type IRegisterRole = {

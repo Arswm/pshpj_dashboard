@@ -64,10 +64,11 @@ const menuLinks = [
     url : '/dashboard/roles' ,
     text : 'roles' , 
     icon : <FaUserShield size={18}/>
-  }
+  },
 ];
 
 const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ className }) => {
+
   return (
     <aside className={`p-4 ${className}`}>
       <div className="mb-14 mt-2 pb-12">

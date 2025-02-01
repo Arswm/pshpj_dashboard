@@ -47,7 +47,7 @@ function OtpForm() {
         pattern={REGEXP_ONLY_DIGITS_AND_CHARS}
         onComplete={handleOtpChange}
       >
-        <InputOTPGroup className={'flex-row-reverse mx-auto'}>
+        <InputOTPGroup autoFocus className={'flex-row-reverse mx-auto'}>
           <InputOTPSlot index={0} />
           <InputOTPSeparator className={'opacity-0'} />
           <InputOTPSlot index={1} />
