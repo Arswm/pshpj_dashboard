@@ -1,4 +1,4 @@
-import { RegisterOptions, UseFormRegister } from 'react-hook-form';
+import { FieldError, RegisterOptions, UseFormRegister } from 'react-hook-form';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 type TextInputProps = {
   label: string;
   name: string;
-  error?: string;
+  error?: FieldError | undefined;
   register: UseFormRegister<any>;
   required?: boolean;
   placeholder?: string;
@@ -44,7 +44,7 @@ export default function TextInput({
 
       {error && (
         <Alert variant="destructive" className="py-2 mt-2">
-          <AlertDescription className="text-xs">{error}</AlertDescription>
+          <AlertDescription className="text-xs">{error.message}</AlertDescription>
         </Alert>
       )}
     </div>

@@ -61,7 +61,7 @@ export default function RegisterCompanyForm() {
             <TextInput
               register={register}
               label="نام شرکت"
-              error={errors.company_name?.message}
+              error={errors.company_name}
               name="company_name"
               required
               rules={{
@@ -79,7 +79,7 @@ export default function RegisterCompanyForm() {
             <TextInput
               register={register}
               label="مدیر عامل"
-              error={errors.owner_name?.message}
+              error={errors.owner_name}
               name="owner_name"
               required
               rules={{
@@ -97,7 +97,7 @@ export default function RegisterCompanyForm() {
             <TextInput
               register={register}
               label="شناسه ملی"
-              error={errors.national_number?.message}
+              error={errors.national_number}
               name="national_number"
               rules={{
                 minLength: {
@@ -110,21 +110,21 @@ export default function RegisterCompanyForm() {
             <TextInput
               register={register}
               label="شماره ثبت"
-              error={errors.registration_number?.message}
+              error={errors.registration_number}
               name="registration_number"
             />
 
             <TextInput
               register={register}
               label="کد اقتصادی"
-              error={errors.economic_identifier?.message}
+              error={errors.economic_identifier}
               name="economic_identifier"
             />
 
             <TextInput
               register={register}
               label="شماره تماس"
-              error={errors.telephone_number?.message}
+              error={errors.telephone_number}
               name="telephone_number"
               required
               rules={{
@@ -147,42 +147,42 @@ export default function RegisterCompanyForm() {
             <TextInput
               register={register}
               label="کد پستی"
-              error={errors.postal_code?.message}
+              error={errors.postal_code}
               name="postal_code"
             />
 
             <TextInput
               register={register}
               label="وبسایت"
-              error={errors.website?.message}
+              error={errors.website}
               name="website"
             />
 
             <TextInput
               register={register}
               label="شماره شبا"
-              error={errors.ir_sheba?.message}
+              error={errors.ir_sheba}
               name="ir_sheba"
             />
 
             <TextInput
               register={register}
               label="صاحب حساب"
-              error={errors.card_owner_name?.message}
+              error={errors.card_owner_name}
               name="card_owner_name"
             />
 
             <TextInput
               register={register}
               label="شماره کارت"
-              error={errors.card_number?.message}
+              error={errors.card_number}
               name="card_number"
             />
 
             <TextInput
               register={register}
               label="درصد مالیات"
-              error={errors.tax?.message}
+              error={errors.tax}
               name="tax"
             />
 
@@ -190,7 +190,7 @@ export default function RegisterCompanyForm() {
               <TextInput
                 register={register}
                 label="توکن دسترسی سایت"
-                error={errors.access_token?.message}
+                error={errors.access_token}
                 name="access_token"
               />
             </div>
@@ -198,7 +198,7 @@ export default function RegisterCompanyForm() {
             <FileInput
               register={register}
               label="امضای شرکت"
-              error={errors.signature?.message}
+              error={errors.signature}
               name="signature"
               accept="image/*"
             />
@@ -206,7 +206,7 @@ export default function RegisterCompanyForm() {
             <FileInput
               register={register}
               label="مهر شرکت"
-              error={errors.seal?.message}
+              error={errors.seal}
               name="seal"
               accept="image/*"
             />
@@ -214,7 +214,7 @@ export default function RegisterCompanyForm() {
             <FileInput
               register={register}
               label="لوگوی شرکت"
-              error={errors.logo?.message}
+              error={errors.logo}
               name="logo"
               accept="image/*"
             />
@@ -222,7 +222,7 @@ export default function RegisterCompanyForm() {
             <FileInput
               register={register}
               label="سربرگ شرکت"
-              error={errors.letterhead?.message}
+              error={errors.letterhead}
               name="letterhead"
               accept="image/*"
             />
@@ -231,7 +231,7 @@ export default function RegisterCompanyForm() {
               <TextAreaInput
                 register={register}
                 label="آدرس"
-                error={errors.address?.message}
+                error={errors.address}
                 name="address"
                 rows={6}
               />
