@@ -22,6 +22,8 @@ const buttonVariants = cva(
         link: 'text-neutral-900 underline-offset-4 hover:underline dark:text-neutral-50',
         blog: 'bg-white hover:bg-primary text-slate-400 hover:text-white transition-all border',
         'web-primary': 'bg-outline border-2',
+        'form-wizard-active' : "bg-primary size-10 text-neutral-50 shadow hover:bg-primary/90 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90 font-bold text-lg",
+        'form-wizard' : "size-10 shadow-none border-none p-4 inline-flex justify-center items-center rounded-sm cursor-pointer bg-primary/10 text-primary text-lg font-bold"
       },
       size: {
         primary: 'h-9 px-4 py-4',

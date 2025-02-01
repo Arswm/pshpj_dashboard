@@ -18,7 +18,7 @@ interface LoginFormProps {
 
 function LoginForm({ setOtp }: LoginFormProps) {
   const [activeTab, setActiveTab] = useState<'mobile' | 'email'>('mobile');
-
+  
   const {
     register,
     handleSubmit,
@@ -34,21 +34,25 @@ function LoginForm({ setOtp }: LoginFormProps) {
 
     try {
       const response = await PostOtp(formattedData);
-
-      if (!response) {
-        return;
+    
+      if (!response || !response.success) {
+        if (response?.errors) {
+          Object.keys(response.errors).forEach((error) => {
+            response!.errors![error].forEach((err: string) => {
+              toast.error(err);
+            });
+          });
+        }
+        return; // Early return if there is no success
       }
-      if (!response.success) {
-        toast.error(response?.errors?.message?.[0]);
-        return;
-      }
-
+    
       setOtp(true);
     } catch (error: unknown) {
       console.error(error);
     } finally {
       reset();
     }
+    
   };
 
   return (

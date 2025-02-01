@@ -5,7 +5,7 @@ import BrandsContent from './_components/BrandsList';
 import CompaniesContent from './_components/CompaniesList';
 import { GetDynamicList } from './_core/requests';
 
-async function CompaniesPage() {
+export default async function CompaniesPage() {
   const dynamicList = await GetDynamicList();
 
   return (
@@ -50,5 +50,3 @@ async function CompaniesPage() {
     </>
   );
 }
-
-export default CompaniesPage;
