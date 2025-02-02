@@ -23,7 +23,7 @@ export default async function UserPage() {
 
   const roles = await getRoles();
 
-  console.log(roles)
+  console.log(roles);
 
   return (
     <div>

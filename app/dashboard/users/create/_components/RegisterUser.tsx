@@ -123,12 +123,11 @@ export default function RegisterUserForm({ roles }: IProps) {
 
       if (!response.success) {
         toast.error('مشکلی پیش آمده');
-        return
+        return;
       }
 
       toast.success('کاربر با موفقیت ثبت شد');
       reset();
-
     } catch (error: unknown) {
       console.log(error);
     }
