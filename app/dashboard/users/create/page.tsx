@@ -31,7 +31,7 @@ export default async function UserPage() {
         <RegisterUserForm roles={roles} />
       ) : (
         <div className="bg-white shadow rounded-lg p-6 flex justify-center items-center flex-col gap-14 text-gray-600">
-          <Image src={EmptyImage} width={600} height={600} alt={'not found'} title={'not found'} />
+          <Image src={EmptyImage} width={250} height={250} alt={'not found'} title={'not found'} />
           <p>مشکلی در پیش ثبت کاربر آمده است</p>
         </div>
       )}
