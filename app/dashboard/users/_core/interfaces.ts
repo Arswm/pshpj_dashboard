@@ -35,5 +35,5 @@ export interface IGetUser {
   agreement_end_date?: IBackendDate;
   job_title: string;
   role: string;
-  image : IMedia
+  image: IMedia;
 }

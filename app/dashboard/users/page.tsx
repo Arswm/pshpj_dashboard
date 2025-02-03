@@ -181,7 +181,6 @@ export default async function UserPage({ searchParams }: { searchParams: { page?
               </div>
             ))}
           </TooltipProvider>
-
         </section>
         <Pagination className="justify-end mt-4 text-gray-600">
           <PaginationContent>
