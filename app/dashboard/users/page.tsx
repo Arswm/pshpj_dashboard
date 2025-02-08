@@ -82,10 +82,10 @@ export default async function UserPage({ searchParams }: { searchParams: { page?
                     <SelectValue placeholder="فیلتر کردن" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="light">تاریخ پایان قرارداد</SelectItem>
-                    <SelectItem value="dark">نزدیک ترین تاریخ تولد</SelectItem>
-                    <SelectItem value="system">بیمه تامین اجتماعی</SelectItem>
-                    <SelectItem value="system">پروفایل کامل نشده</SelectItem>
+                    <SelectItem value="agreement_end">نزدیک ترین پایان قرارداد</SelectItem>
+                    <SelectItem value="birthday">نزدیک ترین تاریخ تولد</SelectItem>
+                    <SelectItem value="insurance">بیمه تامین اجتماعی</SelectItem>
+                    <SelectItem value="profile">پروفایل کامل نشده</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -121,7 +121,7 @@ export default async function UserPage({ searchParams }: { searchParams: { page?
 
           <TooltipProvider>
             {users.map((user) => (
-              <div key={user.id} className="flex gap-2 border-b py-3 mb-2 ms-8">
+              <div key={user.id} className="flex gap-2 border-b last:border-b-0 py-3 mb-2 ms-8">
                 <div className="flex justify-start flex-1 text-center text-sm items-center">
                   <div className="flex items-center justify-start gap-2 ps-2">
                     <Avatar>

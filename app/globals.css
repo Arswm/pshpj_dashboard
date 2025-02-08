@@ -19,13 +19,13 @@ body {
   font-family: 'yekanBakh', sans-serif !important;
 }
 
-.tabs-trigger:first-child {
+/* .tabs-trigger:first-child {
   @apply rounded-tr;
-}
+} */
 
-.tabs-trigger {
-  @apply my-0 py-0 h-full rounded-none data-[state=active]:!shadow-none shadow-none data-[state=active]:!text-primary;
-}
+/* .tabs-trigger {
+  @apply my-0 py-0 h-full rounded-none data-[state=active]:!shadow-none shadow-none data-[state=active]:!text-DarkBlue;
+} */
 
 body::-webkit-scrollbar {
   display: none;
