@@ -97,3 +97,30 @@ export type IPostBrandResponse =
       };
     }
   | undefined;
+<<<<<<< HEAD
+
+export type IBrandDetail = {
+  id: string;
+  name: string;
+  en_name: string;
+  website: string;
+  email: string;
+  telephone: string;
+  phone: string;
+  card_number: string;
+  card_owner_name: string;
+  ir_sheba: string;
+  address: string;
+  access_token: string;
+  payment_link: string;
+  logo: string;
+};
+
+export type responseType<T> =
+  | {
+      success: boolean;
+      data: T;
+    }
+  | undefined;
+=======
+>>>>>>> 765f45d89c0591de332435b00336e786f3ffaa6c
