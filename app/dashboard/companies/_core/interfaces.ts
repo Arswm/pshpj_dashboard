@@ -97,6 +97,7 @@ export type IPostBrandResponse =
       };
     }
   | undefined;
+<<<<<<< HEAD
 
 export type IBrandDetail = {
   id: string;
@@ -121,3 +122,5 @@ export type responseType<T> =
       data: T;
     }
   | undefined;
+=======
+>>>>>>> 765f45d89c0591de332435b00336e786f3ffaa6c

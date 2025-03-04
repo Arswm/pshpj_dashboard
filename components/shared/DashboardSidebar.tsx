@@ -10,6 +10,7 @@ import {
   UserIcon,
   Users,
 } from 'lucide-react';
+import { FaUserShield } from 'react-icons/fa';
 
 interface DashboardSidebarProps {
   className?: string;
@@ -20,43 +21,49 @@ const menuLinks = [
     id: 1,
     url: '/dashboard',
     text: 'Dashboard',
-    icon: <HomeIcon />,
+    icon: <HomeIcon size={18} />,
   },
   {
     id: 2,
     url: '/dashboard/users',
     text: 'Users',
-    icon: <Users />,
+    icon: <Users size={18} />,
   },
   {
     id: 3,
     url: '/dashboard/settings',
     text: 'Settings',
-    icon: <SettingsIcon />,
+    icon: <SettingsIcon size={18} />,
   },
   {
     id: 4,
     url: '/dashboard/companies',
     text: 'Companies',
-    icon: <BuildingIcon />,
+    icon: <BuildingIcon size={18} />,
   },
   {
     id: 5,
     url: '/dashboard/blogs',
     text: 'Blogs',
-    icon: <Rss />,
+    icon: <Rss size={18} />,
   },
   {
     id: 6,
     url: '/dashboard/projects',
     text: 'Projects',
-    icon: <FolderOpenDot />,
+    icon: <FolderOpenDot size={18} />,
   },
   {
     id: 7,
     url: '/dashboard/profile',
     text: 'Profile',
-    icon: <UserIcon />,
+    icon: <UserIcon size={18} />,
+  },
+  {
+    id: 8,
+    url: '/dashboard/roles',
+    text: 'roles',
+    icon: <FaUserShield size={18} />,
   },
 ];
 
@@ -72,7 +79,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ className }) => {
             return (
               <li key={item.id}>
                 <Link href={item.url} className={'hover:underline inline-flex items-center gap-2'}>
-                  {item.icon}
+                  <span className="flex items-center">{item.icon}</span>
                   {item.text}
                 </Link>
               </li>

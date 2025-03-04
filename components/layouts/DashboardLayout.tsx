@@ -1,6 +1,6 @@
 'use client'; // Ensures interactive logic for the sidebar is client-rendered
 
-import DashboardSidebar from '@/components/DashboardSidebar';
+import DashboardSidebar from '@/components/shared/DashboardSidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AlignJustify, CircleX, ListCheck, LogOut, MessageCircle, User } from 'lucide-react';
 import Link from 'next/link';
@@ -34,7 +34,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
       {/* Main Content */}
       <main className="flex-1 mr-0 md:mr-80">
-        <header className="flex relative py-4 p-4 border-b">
+        <header className="flex justify-end relative py-4 p-4 px-8 border-b">
           <DropdownMenu open={openMenu} onOpenChange={setOpenMenu}>
             <DropdownMenuTrigger className="outline-none border-none ring-0">
               <div className="flex gap-2 items-center">

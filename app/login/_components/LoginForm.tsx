@@ -35,12 +35,15 @@ function LoginForm({ setOtp }: LoginFormProps) {
     try {
       const response = await PostOtp(formattedData);
 
-      if (!response) {
-        return;
-      }
-      if (!response.success) {
-        toast.error(response?.errors?.message?.[0]);
-        return;
+      if (!response || !response.success) {
+        if (response?.errors) {
+          Object.keys(response.errors).forEach((error) => {
+            response!.errors![error].forEach((err: string) => {
+              toast.error(err);
+            });
+          });
+        }
+        return; // Early return if there is no success
       }
 
       setOtp(true);

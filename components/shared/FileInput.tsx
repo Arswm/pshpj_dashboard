@@ -1,6 +1,11 @@
 import { cn } from '@/lib/utils';
 import { HTMLProps } from 'react';
-import type { RegisterOptions, UseFormRegister } from 'react-hook-form';
+import type {
+  FieldError,
+  FieldErrorsImpl,
+  RegisterOptions,
+  UseFormRegister,
+} from 'react-hook-form';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
@@ -8,7 +13,7 @@ import { Label } from '../ui/label';
 type FileInputProps = {
   label: string;
   name: string;
-  error?: string;
+  error?: FieldError | FieldErrorsImpl<any> | undefined; // Updated type to allow for the merged errors
   register: UseFormRegister<any>;
   required?: boolean;
   placeholder?: string;
@@ -50,7 +55,7 @@ export default function FileInput({
 
       {error && (
         <Alert variant="destructive" className="py-2 mt-2">
-          <AlertDescription className="text-xs">{error}</AlertDescription>
+          <AlertDescription className="text-xs">{error?.message?.toString()}</AlertDescription>
         </Alert>
       )}
     </div>

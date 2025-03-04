@@ -1,7 +1,7 @@
 import { IPostCompanySchema } from '@/app/dashboard/companies/_core/interfaces';
 import { cn } from '@/lib/utils';
 import { HTMLProps } from 'react';
-import { RegisterOptions } from 'react-hook-form';
+import { FieldError, RegisterOptions } from 'react-hook-form';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
@@ -9,7 +9,7 @@ import { Textarea } from '../ui/textarea';
 type TextAreaInputProps = {
   label: string;
   name: string;
-  error?: string;
+  error?: FieldError | undefined;
   register: any;
   required?: boolean;
   placeholder?: string;
@@ -48,7 +48,7 @@ export default function TextAreaInput({
 
       {error && (
         <Alert variant="destructive" className="py-2 mt-2">
-          <AlertDescription className="text-xs">{error}</AlertDescription>
+          <AlertDescription className="text-xs">{error.message}</AlertDescription>
         </Alert>
       )}
     </div>

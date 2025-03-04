@@ -8,8 +8,9 @@ export async function setTokenToCookie(token: string) {
       name: 'accessToken',
       value: token,
       httpOnly: true,
-      secure: true,
+      secure: false,
       sameSite: 'strict',
+      maxAge: 60 * 60 * 24 * 30,
     });
   } catch (error) {
     console.log(error);

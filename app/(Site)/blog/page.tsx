@@ -1,32 +1,22 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import Image from 'next/image';
-import Link from 'next/link';
-import BlogImage from '@/public/images/blog/blogimage1.jpg';
 import { Badge } from '@/components/ui/badge';
-import { LuLaptopMinimalCheck } from 'react-icons/lu';
-import { FaUser } from 'react-icons/fa';
-import { IoEyeOutline } from 'react-icons/io5';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import BannerBlog from '@/public/images/blog/banner-order-illustration.jpg';
-import BannerBlog2 from '@/public/images/blog/banner-blog-plusing.jpg';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
 } from '@/components/ui/pagination';
+import BannerBlog2 from '@/public/images/blog/banner-blog-plusing.jpg';
+import BannerBlog from '@/public/images/blog/banner-order-illustration.jpg';
+import BlogImage from '@/public/images/blog/blogimage1.jpg';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaUser } from 'react-icons/fa';
+import { IoEyeOutline } from 'react-icons/io5';
+import { LuLaptopMinimalCheck } from 'react-icons/lu';
 
 export default function Blog() {
   return (

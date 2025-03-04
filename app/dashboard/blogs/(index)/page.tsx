@@ -34,7 +34,7 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 
-function Page() {
+function BlogsPage() {
   return (
     <div className={'container'}>
       <section className={'grid md:grid-cols-5 gap-4 border bg-white shadow-md'}>
@@ -416,4 +416,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default BlogsPage;

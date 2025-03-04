@@ -106,7 +106,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
             <TextInput
               register={register}
               label="نام برند تجاری"
-              error={errors.name?.message}
+              error={errors.name}
               name="name"
               required
               rules={{
@@ -124,7 +124,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
             <TextInput
               register={register}
               label="نامک"
-              error={errors.en_name?.message}
+              error={errors.en_name}
               name="en_name"
               required
               rules={{
@@ -142,28 +142,23 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
             <TextInput
               register={register}
               label="آدرس سایت"
-              error={errors.company_id?.message}
+              error={errors.company_id}
               name="email"
             />
 
-            <TextInput
-              register={register}
-              label="ایمیل اصلی"
-              error={errors.email?.message}
-              name="email"
-            />
+            <TextInput register={register} label="ایمیل اصلی" error={errors.email} name="email" />
 
             <TextInput
               register={register}
               label="شماره ثابت"
-              error={errors.telephone?.message}
+              error={errors.telephone}
               name="telephone"
             />
 
             <TextInput
               register={register}
               label="شماره موبایل"
-              error={errors.phone?.message}
+              error={errors.phone}
               name="phone"
               required
               rules={{
@@ -175,32 +170,27 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
                   value: 8,
                   message: 'حداقل ۸ عدد است',
                 },
-                // regex phone comes here
-                //   pattern: {
-                //     value : mobileRegex,
-                //     message : 'یک شماره معتبر وارد کنید'
-                //   }
               }}
             />
 
             <TextInput
               register={register}
               label="شماره کارت"
-              error={errors.card_number?.message}
+              error={errors.card_number}
               name="card_number"
             />
 
             <TextInput
               register={register}
               label="نام صاحب حساب"
-              error={errors.card_owner_name?.message}
+              error={errors.card_owner_name}
               name="card_owner_name"
             />
 
             <TextInput
               register={register}
               label="شماره شبا"
-              error={errors.ir_sheba?.message}
+              error={errors.ir_sheba}
               name="ir_sheba"
             />
 
@@ -208,7 +198,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
               <TextInput
                 register={register}
                 label="لینک درگاه پرداخت"
-                error={errors.payment_link?.message}
+                error={errors.payment_link}
                 name="payment_link"
               />
             </div>
@@ -217,7 +207,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
               <FileInput
                 register={register as UseFormRegister<IPostBrandSchema>}
                 label="لوگو برند"
-                error={errors.logo?.message}
+                error={errors.logo}
                 name="logo"
                 accept="image/*"
               />
@@ -227,7 +217,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
               <TextInput
                 register={register}
                 label="توکن دسترسی سایت"
-                error={errors.access_token?.message}
+                error={errors.access_token}
                 name="access_token"
               />
             </div>
@@ -236,7 +226,7 @@ export default function RegisterBrandForm({ companies }: { companies: ICompanies
               <TextAreaInput
                 register={register}
                 label="آدرس"
-                error={errors.address?.message}
+                error={errors.address}
                 name="address"
                 rows={6}
               />

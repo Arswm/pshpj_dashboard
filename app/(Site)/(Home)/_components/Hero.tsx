@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { FaRegBuilding } from 'react-icons/fa';
 import { GrCertificate } from 'react-icons/gr';
 
